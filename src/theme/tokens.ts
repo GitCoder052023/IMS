@@ -1,42 +1,62 @@
 /**
- * Design Tokens per DESIGN.md (Linear - Midnight Precision Instrument)
+ * Design Tokens — "Shop — White Marble" Design System
+ * Light theme · Single violet accent · Pillow-soft radii · GT Standard typography
  */
 
 export const colors = {
   // Canvas & Surfaces
-  void: '#08090a',       // Page canvas, full-bleed backgrounds
-  carbon: '#0f1011',     // Card surfaces, nav bars
-  obsidian: '#161718',   // Elevated surfaces, modal panels
-  slate: '#23252a',      // Interactive surface tint, ghost button fills
+  canvasMist: '#f2f4f5',     // Page background, secondary surface wash
+  pureWhite: '#ffffff',       // Primary surface for cards, inputs, pills
+  inkBlack: '#000000',        // Primary text, headings, icons
+  slateInk: '#332f2d',        // Dark product card surfaces, deep-tone text
 
   // Borders & Dividers
-  graphite: '#23252a',   // Low-contrast structural edges, hairline borders
-  smoke: '#383b3f',      // Higher contrast section separators
+  faintBorder: '#ebebeb',     // Hairline dividers, input outlines, pill borders
 
   // Typography
-  paper: '#ffffff',      // Primary headings, max-contrast emphasis
-  bone: '#e5e5e6',       // Near-white text, high-contrast text
-  mist: '#d0d6e0',       // Secondary headings, body text, button text
-  fog: '#8a8f98',        // Secondary metadata, inactive icons, placeholder copy
-  ash: '#62666d',        // Muted body text, subtle captions
+  mutedGray: '#787574',       // Secondary text, nav labels, placeholder copy
+  coolStone: '#cccccc',       // Placeholder fills, disabled states
+  warmFog: '#acb0aa',         // Subtle surface tints, secondary backgrounds
+  ashVeil: '#665a54',         // Warm desaturated gray, subtle captions
 
   // Accents
-  acidLime: '#e4f222',   // Primary CTA button, active nav indicator (sole filled chromatic button)
-  pulseGreen: '#27a644', // In-stock indicator, success accents
-  coralRed: '#eb5757',   // Out-of-stock indicator, destructive actions, error wash
-  amber: '#f59e0b',      // Low-stock warning indicator
-  irisViolet: '#6366f1', // Category tag fills
-  lavender: '#8b5cf6',   // Secondary tag fills
-  signalTeal: '#02b8cc', // Informational accents
+  shopViolet: '#5433eb',      // Primary action, wordmark, search submit — the ONLY saturated accent
+  violetWash: '#c0b5f3',      // Translucent halo behind violet elements
+
+  // Semantic Status (adapted for light backgrounds)
+  pulseGreen: '#27a644',      // In-stock indicator, success accents
+  coralRed: '#eb5757',        // Out-of-stock, destructive actions, error
+  amber: '#f59e0b',           // Low-stock warning indicator
+
+  // ---- Legacy aliases for backward compatibility during migration ----
+  // These map old token names to new values so imports don't break
+  void: '#f2f4f5',            // was dark canvas → now canvas mist
+  carbon: '#ffffff',          // was dark card → now white surface
+  obsidian: '#ffffff',        // was elevated dark → now white surface
+  slate: '#f2f4f5',           // was interactive tint → now canvas mist
+  graphite: '#ebebeb',        // was dark border → now faint border
+  smoke: '#ebebeb',           // was separator → now faint border
+  paper: '#000000',           // was white text → now ink black (primary text)
+  bone: '#000000',            // was near-white → now ink black
+  mist: '#332f2d',            // was secondary text → now slate ink
+  fog: '#787574',             // was placeholder → now muted gray
+  ash: '#acb0aa',             // was muted caption → now warm fog
+  acidLime: '#5433eb',        // was lime CTA → now shop violet
+  irisViolet: '#5433eb',      // was category tag → now shop violet
+  lavender: '#c0b5f3',        // was secondary tag → now violet wash
+  signalTeal: '#5433eb',      // was info accent → now shop violet
 };
 
 export const radii = {
-  sm: 2,
-  badge: 4,
-  input: 6,
-  button: 6,
-  card: 12,
+  sm: 4,
+  badge: 9999,
+  input: 9999,
+  button: 9999,
+  card: 28,
   pill: 9999,
+  chips: 9999,
+  search: 9999,
+  innerImage: 20,
 };
 
 export const spacing = {
@@ -54,45 +74,69 @@ export const spacing = {
   32: 32,
   40: 40,
   48: 48,
+  64: 64,
+};
+
+export const shadows = {
+  /** Category pill, cookie button — subtle lift */
+  sm: {
+    shadowColor: '#000000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.06,
+    shadowRadius: 8,
+    elevation: 2,
+  },
+  /** Hero product card, brand spotlight — dual-layer soft */
+  card: {
+    shadowColor: '#000000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.1,
+    shadowRadius: 6,
+    elevation: 4,
+  },
+  /** Carousel arrow, elevated controls */
+  lg: {
+    shadowColor: '#000000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.12,
+    shadowRadius: 24,
+    elevation: 6,
+  },
+  /** Violet-tinted shadow for primary action button */
+  violet: {
+    shadowColor: '#5433eb',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.34,
+    shadowRadius: 24,
+    elevation: 6,
+  },
 };
 
 export const typography = {
   caption: {
-    fontSize: 12,
-    lineHeight: 16,
-    letterSpacing: 0,
+    fontSize: 11,
+    lineHeight: 14.63,
+    letterSpacing: -0.017 * 11,
   },
   bodySm: {
-    fontSize: 13,
-    lineHeight: 18,
-    letterSpacing: -0.1,
+    fontSize: 12,
+    lineHeight: 15.96,
+    letterSpacing: -0.017 * 12,
   },
   body: {
-    fontSize: 15,
-    lineHeight: 22,
-    letterSpacing: -0.165,
+    fontSize: 14,
+    lineHeight: 18.62,
+    letterSpacing: -0.014 * 14,
   },
   bodyLg: {
-    fontSize: 17,
-    lineHeight: 24,
-    letterSpacing: -0.2,
+    fontSize: 16,
+    lineHeight: 21.28,
+    letterSpacing: -0.031 * 16,
   },
   subheading: {
     fontSize: 20,
-    lineHeight: 26,
-    letterSpacing: -0.24,
-    fontWeight: '600' as const,
-  },
-  headingSm: {
-    fontSize: 24,
-    lineHeight: 30,
-    letterSpacing: -0.288,
-    fontWeight: '600' as const,
-  },
-  heading: {
-    fontSize: 30,
-    lineHeight: 36,
-    letterSpacing: -0.5,
+    lineHeight: 22,
+    letterSpacing: -0.05 * 20,
     fontWeight: '600' as const,
   },
 };

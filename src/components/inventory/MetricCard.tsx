@@ -17,7 +17,7 @@ export function MetricCard({
   value,
   subtitle,
   icon,
-  accentColor = colors.mist,
+  accentColor = colors.shopViolet,
   onPress,
 }: MetricCardProps) {
   const content = (
@@ -29,7 +29,7 @@ export function MetricCard({
         <View
           style={[
             styles.iconWrapper,
-            { backgroundColor: `${accentColor}18` },
+            { backgroundColor: `${accentColor}15` },
           ]}
         >
           <Feather name={icon} size={14} color={accentColor} />
@@ -66,15 +66,18 @@ const styles = StyleSheet.create({
     minWidth: '45%',
   },
   card: {
-    backgroundColor: colors.carbon,
-    borderRadius: radii.card,
-    borderWidth: 1,
-    borderColor: colors.graphite,
-    padding: spacing[14],
-    gap: spacing[6],
+    backgroundColor: colors.pureWhite,
+    borderRadius: 28,
+    padding: 14,
+    gap: 6,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.1,
+    shadowRadius: 6,
+    elevation: 4,
   },
   pressed: {
-    opacity: 0.85,
+    opacity: 0.88,
   },
   header: {
     flexDirection: 'row',
@@ -84,24 +87,24 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 12,
     fontWeight: '500',
-    color: colors.fog,
-    letterSpacing: -0.1,
+    color: colors.mutedGray,
+    letterSpacing: -0.2,
     flex: 1,
   },
   iconWrapper: {
     width: 24,
     height: 24,
-    borderRadius: radii.badge,
+    borderRadius: 9999,
     alignItems: 'center',
     justifyContent: 'center',
   },
   value: {
     fontSize: 26,
     fontWeight: '700',
-    letterSpacing: -0.5,
+    letterSpacing: -1.0,
   },
   subtitle: {
     fontSize: 11,
-    color: colors.ash,
+    color: colors.coolStone,
   },
 });

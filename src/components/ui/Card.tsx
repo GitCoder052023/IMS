@@ -41,17 +41,22 @@ export function Card({ children, style, onPress, elevated = false }: CardProps) 
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: colors.carbon,
-    borderRadius: radii.card,
-    borderWidth: 1,
-    borderColor: colors.graphite,
-    padding: spacing[16],
+    backgroundColor: '#ffffff',
+    borderRadius: 28,
+    padding: 16,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.1,
+    shadowRadius: 6,
+    elevation: 4,
   },
   elevated: {
-    backgroundColor: colors.obsidian,
+    backgroundColor: '#ffffff',
+    shadowOpacity: 0.15,
+    shadowRadius: 12,
+    elevation: 8,
   },
   pressed: {
-    opacity: 0.88,
-    backgroundColor: colors.slate,
+    opacity: 0.92,
   },
 });

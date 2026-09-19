@@ -67,7 +67,7 @@ export function Button({
       {loading ? (
         <ActivityIndicator
           size="small"
-          color={variant === 'primary' ? colors.void : colors.mist}
+          color={variant === 'primary' ? '#ffffff' : '#787574'}
         />
       ) : (
         <>
@@ -84,34 +84,45 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: spacing[8],
-    borderRadius: radii.button,
+    gap: 8,
+    borderRadius: 9999,
     paddingVertical: 10,
-    paddingHorizontal: spacing[16],
+    paddingHorizontal: 16,
   },
   primary: {
-    backgroundColor: colors.acidLime,
+    backgroundColor: '#5433eb',
+    shadowColor: '#5433eb',
+    shadowOpacity: 0.34,
+    shadowRadius: 24,
+    shadowOffset: { width: 0, height: 4 },
+    elevation: 6,
   },
   secondary: {
-    backgroundColor: colors.obsidian,
+    backgroundColor: '#ffffff',
     borderWidth: 1,
-    borderColor: colors.graphite,
+    borderColor: '#ebebeb',
   },
   ghost: {
     backgroundColor: 'transparent',
     borderWidth: 1,
-    borderColor: colors.graphite,
+    borderColor: '#ebebeb',
   },
   danger: {
-    backgroundColor: 'rgba(235, 87, 87, 0.12)',
+    backgroundColor: 'rgba(235, 87, 87, 0.08)',
     borderWidth: 1,
-    borderColor: 'rgba(235, 87, 87, 0.3)',
+    borderColor: 'rgba(235, 87, 87, 0.2)',
   },
   pill: {
-    backgroundColor: 'rgba(255, 255, 255, 0.05)',
-    borderRadius: radii.pill,
+    backgroundColor: '#ffffff',
+    borderWidth: 1,
+    borderColor: '#ebebeb',
+    shadowColor: '#000',
+    shadowOpacity: 0.06,
+    shadowRadius: 8,
+    shadowOffset: { width: 0, height: 2 },
+    elevation: 2,
     paddingVertical: 6,
-    paddingHorizontal: spacing[12],
+    paddingHorizontal: 12,
   },
   pressed: {
     opacity: 0.82,
@@ -121,25 +132,24 @@ const styles = StyleSheet.create({
     opacity: 0.45,
   },
   textPrimary: {
-    color: colors.void,
+    color: '#ffffff',
     fontSize: 14,
     fontWeight: '600',
-    letterSpacing: -0.15,
+    letterSpacing: -0.2,
   },
   textSecondary: {
-    color: colors.mist,
+    color: '#000000',
     fontSize: 14,
     fontWeight: '500',
-    letterSpacing: -0.1,
+    letterSpacing: -0.2,
   },
   textDanger: {
-    color: colors.coralRed,
+    color: '#eb5757',
     fontSize: 14,
     fontWeight: '600',
-    letterSpacing: -0.1,
   },
   textPill: {
-    color: colors.mist,
+    color: '#000000',
     fontSize: 13,
     fontWeight: '400',
   },

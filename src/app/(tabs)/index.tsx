@@ -61,7 +61,7 @@ export default function DashboardScreen() {
         return {
           title: `+ ${quantity}${unit} ${itemName} added (intake)`,
           icon: 'box' as const,
-          color: colors.bone,
+          color: colors.inkBlack,
         };
       case 'STOCK_ADDED':
         return {
@@ -101,7 +101,7 @@ export default function DashboardScreen() {
         <Button
           title="Add Item"
           variant="primary"
-          icon={<Feather name="plus" size={15} color={colors.void} />}
+          icon={<Feather name="plus" size={15} color={colors.pureWhite} />}
           onPress={() => router.push('/item/new')}
         />
       </View>
@@ -144,7 +144,7 @@ export default function DashboardScreen() {
                           color:
                             metrics.lowStockCount + metrics.outOfStockCount > 0
                               ? colors.amber
-                              : colors.mist,
+                              : colors.slateInk,
                         },
                       ]}
                     >
@@ -163,7 +163,7 @@ export default function DashboardScreen() {
                           color:
                             metrics.damagedCount > 0
                               ? colors.coralRed
-                              : colors.mist,
+                              : colors.slateInk,
                         },
                       ]}
                     >
@@ -250,7 +250,7 @@ export default function DashboardScreen() {
                       <Text style={styles.viewAllAttentionText}>
                         View all {metrics.needsAttentionItems.length} items needing attention
                       </Text>
-                      <Feather name="arrow-right" size={14} color={colors.mist} />
+                      <Feather name="arrow-right" size={14} color={colors.slateInk} />
                     </Pressable>
                   )}
                 </View>
@@ -269,7 +269,7 @@ export default function DashboardScreen() {
               <Card style={styles.activityCard}>
                 {history.length === 0 ? (
                   <View style={styles.emptyActivityBox}>
-                    <Feather name="clock" size={20} color={colors.fog} />
+                    <Feather name="clock" size={20} color={colors.mutedGray} />
                     <Text style={styles.emptyActivityText}>
                       No recent activity recorded yet.
                     </Text>
@@ -340,7 +340,7 @@ export default function DashboardScreen() {
                         <Text style={styles.viewAllHistoryText}>
                           View full activity history
                         </Text>
-                        <Feather name="chevron-right" size={14} color={colors.fog} />
+                        <Feather name="chevron-right" size={14} color={colors.mutedGray} />
                       </Pressable>
                     )}
                   </View>
@@ -418,7 +418,7 @@ export default function DashboardScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.void,
+    backgroundColor: colors.canvasMist,
   },
   header: {
     flexDirection: 'row',
@@ -427,7 +427,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing[16],
     paddingVertical: spacing[12],
     borderBottomWidth: 1,
-    borderBottomColor: colors.graphite,
+    borderBottomColor: colors.faintBorder,
+    backgroundColor: colors.pureWhite,
   },
   headerTitleCol: {
     gap: 2,
@@ -435,12 +436,12 @@ const styles = StyleSheet.create({
   screenTitle: {
     fontSize: 20,
     fontWeight: '700',
-    color: colors.paper,
-    letterSpacing: -0.3,
+    color: colors.inkBlack,
+    letterSpacing: -1.0,
   },
   dateSubtitle: {
     fontSize: 13,
-    color: colors.fog,
+    color: colors.mutedGray,
     fontWeight: '400',
   },
   scrollContent: {
@@ -457,7 +458,7 @@ const styles = StyleSheet.create({
   sectionHeaderTitle: {
     fontSize: 11,
     fontWeight: '600',
-    color: colors.fog,
+    color: colors.mutedGray,
     letterSpacing: 0.6,
     paddingLeft: spacing[4],
   },
@@ -468,12 +469,12 @@ const styles = StyleSheet.create({
     paddingRight: spacing[4],
   },
   attentionCountBadge: {
-    backgroundColor: 'rgba(235, 87, 87, 0.15)',
+    backgroundColor: 'rgba(235, 87, 87, 0.1)',
     paddingHorizontal: 8,
     paddingVertical: 1,
-    borderRadius: radii.pill,
+    borderRadius: 9999,
     borderWidth: 1,
-    borderColor: 'rgba(235, 87, 87, 0.3)',
+    borderColor: 'rgba(235, 87, 87, 0.2)',
   },
   attentionCountText: {
     fontSize: 11,
@@ -482,7 +483,7 @@ const styles = StyleSheet.create({
   },
   activityCountText: {
     fontSize: 12,
-    color: colors.fog,
+    color: colors.mutedGray,
   },
   healthCard: {
     padding: spacing[16],
@@ -501,28 +502,28 @@ const styles = StyleSheet.create({
   healthStatValue: {
     fontSize: 28,
     fontWeight: '700',
-    letterSpacing: -0.5,
+    letterSpacing: -1.0,
   },
   healthStatLabel: {
     fontSize: 12,
     fontWeight: '500',
-    color: colors.fog,
+    color: colors.mutedGray,
   },
   healthDivider: {
     width: 1,
     height: 36,
-    backgroundColor: colors.graphite,
+    backgroundColor: colors.faintBorder,
   },
   progressSection: {
     borderTopWidth: 1,
-    borderTopColor: 'rgba(255, 255, 255, 0.05)',
+    borderTopColor: colors.faintBorder,
     paddingTop: spacing[14],
     gap: spacing[8],
   },
   progressBarWrapper: {
     height: 6,
     borderRadius: 3,
-    backgroundColor: colors.slate,
+    backgroundColor: colors.faintBorder,
     overflow: 'hidden',
     flexDirection: 'row',
   },
@@ -541,26 +542,26 @@ const styles = StyleSheet.create({
   },
   progressText: {
     fontSize: 12,
-    color: colors.mist,
+    color: colors.slateInk,
   },
   percentageText: {
     fontSize: 12,
     fontWeight: '600',
-    color: colors.bone,
+    color: colors.inkBlack,
   },
   allGoodCard: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: spacing[14],
     padding: spacing[16],
-    backgroundColor: colors.carbon,
-    borderColor: 'rgba(39, 166, 68, 0.2)',
+    backgroundColor: colors.pureWhite,
+    borderColor: 'rgba(39, 166, 68, 0.15)',
   },
   allGoodIconCircle: {
     width: 32,
     height: 32,
     borderRadius: 16,
-    backgroundColor: 'rgba(39, 166, 68, 0.12)',
+    backgroundColor: 'rgba(39, 166, 68, 0.08)',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -571,11 +572,11 @@ const styles = StyleSheet.create({
   allGoodTitle: {
     fontSize: 14,
     fontWeight: '600',
-    color: colors.paper,
+    color: colors.inkBlack,
   },
   allGoodSubtitle: {
     fontSize: 12,
-    color: colors.fog,
+    color: colors.mutedGray,
     lineHeight: 16,
   },
   attentionList: {
@@ -587,15 +588,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     gap: spacing[6],
     paddingVertical: spacing[10],
-    backgroundColor: colors.carbon,
-    borderRadius: radii.button,
+    backgroundColor: colors.pureWhite,
+    borderRadius: 9999,
     borderWidth: 1,
-    borderColor: colors.graphite,
+    borderColor: colors.faintBorder,
   },
   viewAllAttentionText: {
     fontSize: 13,
     fontWeight: '500',
-    color: colors.mist,
+    color: colors.slateInk,
   },
   activityCard: {
     padding: spacing[14],
@@ -608,7 +609,7 @@ const styles = StyleSheet.create({
   },
   emptyActivityText: {
     fontSize: 13,
-    color: colors.fog,
+    color: colors.mutedGray,
     fontStyle: 'italic',
   },
   activityList: {
@@ -622,7 +623,7 @@ const styles = StyleSheet.create({
   },
   activityRowDivider: {
     borderBottomWidth: 1,
-    borderBottomColor: 'rgba(255, 255, 255, 0.04)',
+    borderBottomColor: colors.faintBorder,
     paddingBottom: spacing[10],
   },
   activityIconCircle: {
@@ -640,8 +641,8 @@ const styles = StyleSheet.create({
   activityTitleText: {
     fontSize: 13,
     fontWeight: '600',
-    color: colors.bone,
-    letterSpacing: -0.1,
+    color: colors.inkBlack,
+    letterSpacing: -0.2,
   },
   activityMetaRow: {
     flexDirection: 'row',
@@ -651,15 +652,15 @@ const styles = StyleSheet.create({
   },
   activityTimestamp: {
     fontSize: 11,
-    color: colors.fog,
+    color: colors.mutedGray,
   },
   activityDot: {
     fontSize: 11,
-    color: colors.ash,
+    color: colors.warmFog,
   },
   activityNote: {
     fontSize: 11,
-    color: colors.ash,
+    color: colors.warmFog,
     fontStyle: 'italic',
     maxWidth: 180,
   },
@@ -669,11 +670,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingTop: spacing[8],
     borderTopWidth: 1,
-    borderTopColor: 'rgba(255, 255, 255, 0.05)',
+    borderTopColor: colors.faintBorder,
   },
   viewAllHistoryText: {
     fontSize: 12,
-    color: colors.fog,
+    color: colors.mutedGray,
   },
   categoryCard: {
     padding: spacing[14],
@@ -686,7 +687,7 @@ const styles = StyleSheet.create({
   },
   categoryRowDivider: {
     borderBottomWidth: 1,
-    borderBottomColor: 'rgba(255, 255, 255, 0.04)',
+    borderBottomColor: colors.faintBorder,
     paddingBottom: spacing[12],
   },
   categoryHeaderRow: {
@@ -697,24 +698,24 @@ const styles = StyleSheet.create({
   categoryNameText: {
     fontSize: 13,
     fontWeight: '600',
-    color: colors.bone,
-    letterSpacing: -0.1,
+    color: colors.inkBlack,
+    letterSpacing: -0.2,
   },
   categoryUnitsText: {
     fontSize: 13,
     fontWeight: '700',
-    color: colors.paper,
+    color: colors.inkBlack,
   },
   categoryBarContainer: {
     height: 6,
     borderRadius: 3,
-    backgroundColor: colors.slate,
+    backgroundColor: colors.faintBorder,
     overflow: 'hidden',
   },
   categoryBarFill: {
     height: '100%',
     borderRadius: 3,
-    backgroundColor: colors.irisViolet,
+    backgroundColor: colors.shopViolet,
   },
   categoryFooterRow: {
     flexDirection: 'row',
@@ -723,6 +724,6 @@ const styles = StyleSheet.create({
   },
   categoryFooterText: {
     fontSize: 11,
-    color: colors.fog,
+    color: colors.mutedGray,
   },
 });

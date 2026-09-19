@@ -8,36 +8,18 @@ export default function RootLayout() {
   return (
     <SafeAreaProvider>
       <InventoryProvider>
-        <StatusBar style="light" />
+        <StatusBar style="dark" />
         <Stack
           screenOptions={{
             headerShown: false,
-            contentStyle: { backgroundColor: colors.void },
+            contentStyle: { backgroundColor: colors.canvasMist },
             animation: 'slide_from_right',
           }}
         >
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen
-            name="item/[id]"
-            options={{
-              headerShown: false,
-              animation: 'slide_from_right',
-            }}
-          />
-          <Stack.Screen
-            name="item/new"
-            options={{
-              headerShown: false,
-              presentation: 'modal',
-            }}
-          />
-          <Stack.Screen
-            name="item/edit"
-            options={{
-              headerShown: false,
-              presentation: 'modal',
-            }}
-          />
+          <Stack.Screen name="item/[id]" options={{ headerShown: false, animation: 'slide_from_right' }} />
+          <Stack.Screen name="item/new" options={{ headerShown: false, presentation: 'modal' }} />
+          <Stack.Screen name="item/edit" options={{ headerShown: false, presentation: 'modal' }} />
         </Stack>
       </InventoryProvider>
     </SafeAreaProvider>

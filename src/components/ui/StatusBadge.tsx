@@ -14,26 +14,26 @@ export function StatusBadge({ status, style }: StatusBadgeProps) {
       case 'IN_STOCK':
         return {
           label: 'In Stock',
-          bg: 'rgba(39, 166, 68, 0.12)',
-          border: 'rgba(39, 166, 68, 0.28)',
-          text: '#3cd060',
-          dot: colors.pulseGreen,
+          bg: 'rgba(39, 166, 68, 0.1)',
+          border: 'rgba(39, 166, 68, 0.2)',
+          text: '#27a644',
+          dot: '#27a644',
         };
       case 'LOW_STOCK':
         return {
           label: 'Low Stock',
-          bg: 'rgba(245, 158, 11, 0.12)',
-          border: 'rgba(245, 158, 11, 0.28)',
-          text: '#fbbf24',
-          dot: colors.amber,
+          bg: 'rgba(245, 158, 11, 0.1)',
+          border: 'rgba(245, 158, 11, 0.2)',
+          text: '#d97706',
+          dot: '#f59e0b',
         };
       case 'OUT_OF_STOCK':
         return {
           label: 'Out of Stock',
-          bg: 'rgba(235, 87, 87, 0.12)',
-          border: 'rgba(235, 87, 87, 0.28)',
-          text: '#f87171',
-          dot: colors.coralRed,
+          bg: 'rgba(235, 87, 87, 0.1)',
+          border: 'rgba(235, 87, 87, 0.2)',
+          text: '#eb5757',
+          dot: '#eb5757',
         };
     }
   };
@@ -103,8 +103,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: 3,
-    paddingHorizontal: spacing[8],
-    borderRadius: radii.badge,
+    paddingHorizontal: 8,
+    borderRadius: 9999,
     borderWidth: 1,
     alignSelf: 'flex-start',
     gap: 6,
@@ -121,30 +121,30 @@ const styles = StyleSheet.create({
   },
   damagedBadge: {
     paddingVertical: 3,
-    paddingHorizontal: spacing[8],
-    borderRadius: radii.badge,
-    backgroundColor: 'rgba(235, 87, 87, 0.1)',
+    paddingHorizontal: 8,
+    borderRadius: 9999,
+    backgroundColor: 'rgba(235, 87, 87, 0.08)',
     borderWidth: 1,
-    borderColor: 'rgba(235, 87, 87, 0.25)',
+    borderColor: 'rgba(235, 87, 87, 0.15)',
     alignSelf: 'flex-start',
   },
   damagedText: {
-    color: colors.coralRed,
+    color: '#eb5757',
     fontSize: 12,
     fontWeight: '500',
     letterSpacing: -0.1,
   },
   categoryTag: {
     paddingVertical: 2,
-    paddingHorizontal: spacing[8],
-    borderRadius: radii.badge,
-    backgroundColor: 'rgba(99, 102, 241, 0.1)',
+    paddingHorizontal: 8,
+    borderRadius: 9999,
+    backgroundColor: 'rgba(84, 51, 235, 0.08)',
     borderWidth: 1,
-    borderColor: 'rgba(99, 102, 241, 0.22)',
+    borderColor: 'rgba(84, 51, 235, 0.15)',
     alignSelf: 'flex-start',
   },
   categoryText: {
-    color: '#a5b4fc',
+    color: '#5433eb',
     fontSize: 12,
     fontWeight: '400',
     letterSpacing: -0.1,

@@ -24,7 +24,7 @@ export function HistoryTimeline({ history, unit }: HistoryTimelineProps) {
         return {
           label: 'Initial Intake',
           sign: '+',
-          color: colors.bone,
+          color: colors.inkBlack,
           icon: 'box' as const,
         };
       case 'STOCK_ADDED':
@@ -85,7 +85,7 @@ export function HistoryTimeline({ history, unit }: HistoryTimelineProps) {
               <View
                 style={[
                   styles.iconNode,
-                  { backgroundColor: `${config.color}20`, borderColor: config.color },
+                  { backgroundColor: `${config.color}15`, borderColor: config.color },
                 ]}
               >
                 <Feather name={config.icon} size={11} color={config.color} />
@@ -118,15 +118,16 @@ export function HistoryTimeline({ history, unit }: HistoryTimelineProps) {
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: spacing[8],
+    paddingVertical: 8,
   },
   emptyContainer: {
-    paddingVertical: spacing[20],
+    paddingVertical: 20,
     alignItems: 'center',
+    justifyContent: 'center',
   },
   emptyText: {
     fontSize: 13,
-    color: colors.fog,
+    color: colors.mutedGray,
     fontStyle: 'italic',
   },
   row: {
@@ -134,8 +135,9 @@ const styles = StyleSheet.create({
   },
   indicatorCol: {
     alignItems: 'center',
+    justifyContent: 'center',
     width: 28,
-    marginRight: spacing[12],
+    marginRight: 12,
   },
   iconNode: {
     width: 22,
@@ -149,7 +151,7 @@ const styles = StyleSheet.create({
   connector: {
     flex: 1,
     width: 1,
-    backgroundColor: colors.graphite,
+    backgroundColor: colors.faintBorder,
     marginVertical: 2,
   },
   contentCol: {
@@ -157,7 +159,7 @@ const styles = StyleSheet.create({
     gap: 3,
   },
   contentColBottom: {
-    paddingBottom: spacing[16],
+    paddingBottom: 16,
   },
   titleRow: {
     flexDirection: 'row',
@@ -167,8 +169,8 @@ const styles = StyleSheet.create({
   actionTitle: {
     fontSize: 13,
     fontWeight: '600',
-    color: colors.bone,
-    letterSpacing: -0.1,
+    color: colors.inkBlack,
+    letterSpacing: -0.2,
   },
   qtyBadge: {
     fontSize: 13,
@@ -176,11 +178,11 @@ const styles = StyleSheet.create({
   },
   noteText: {
     fontSize: 12,
-    color: colors.mist,
+    color: colors.mutedGray,
     fontStyle: 'italic',
   },
   timestamp: {
     fontSize: 11,
-    color: colors.ash,
+    color: colors.coolStone,
   },
 });

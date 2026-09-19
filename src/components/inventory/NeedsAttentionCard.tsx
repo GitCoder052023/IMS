@@ -44,7 +44,7 @@ export function NeedsAttentionCard({ item, onPress }: NeedsAttentionCardProps) {
           )}
         </View>
 
-        <Feather name="chevron-right" size={16} color={colors.fog} />
+        <Feather name="chevron-right" size={16} color={colors.mutedGray} />
       </View>
     </Card>
   );
@@ -52,14 +52,14 @@ export function NeedsAttentionCard({ item, onPress }: NeedsAttentionCardProps) {
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: spacing[8],
-    paddingVertical: spacing[12],
-    paddingHorizontal: spacing[14],
+    marginBottom: 8,
+    paddingVertical: 12,
+    paddingHorizontal: 14,
   },
   contentRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: spacing[12],
+    gap: 12,
   },
   info: {
     flex: 1,
@@ -68,8 +68,8 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 14,
     fontWeight: '600',
-    color: colors.paper,
-    letterSpacing: -0.15,
+    color: colors.inkBlack,
+    letterSpacing: -0.2,
   },
   detailRow: {
     flexDirection: 'row',
@@ -78,15 +78,15 @@ const styles = StyleSheet.create({
   },
   available: {
     fontSize: 12,
-    color: colors.mist,
+    color: '#332f2d',
   },
   divider: {
     fontSize: 12,
-    color: colors.ash,
+    color: colors.coolStone,
   },
   min: {
     fontSize: 12,
-    color: colors.fog,
+    color: colors.mutedGray,
   },
   badges: {
     alignItems: 'flex-end',

@@ -50,7 +50,7 @@ export default function ItemDetailScreen() {
       <View style={[styles.container, { paddingTop: insets.top }]}>
         <View style={styles.header}>
           <Pressable onPress={() => router.back()} style={styles.backBtn}>
-            <Feather name="arrow-left" size={20} color={colors.mist} />
+            <Feather name="arrow-left" size={20} color={colors.slateInk} />
           </Pressable>
           <Text style={styles.headerTitle}>Item Not Found</Text>
           <View style={{ width: 28 }} />
@@ -128,7 +128,7 @@ export default function ItemDetailScreen() {
           style={styles.backBtn}
           accessibilityLabel="Back"
         >
-          <Feather name="arrow-left" size={20} color={colors.mist} />
+          <Feather name="arrow-left" size={20} color={colors.slateInk} />
         </Pressable>
 
         <Text style={styles.headerTitle} numberOfLines={1}>
@@ -142,7 +142,7 @@ export default function ItemDetailScreen() {
             style={styles.actionIconBtn}
             accessibilityLabel="Edit item"
           >
-            <Feather name="edit-2" size={18} color={colors.mist} />
+            <Feather name="edit-2" size={18} color={colors.slateInk} />
           </Pressable>
           <Pressable
             onPress={handleDelete}
@@ -226,7 +226,7 @@ export default function ItemDetailScreen() {
             <Button
               title="Add Stock"
               variant="secondary"
-              icon={<Feather name="plus-circle" size={15} color={colors.acidLime} />}
+              icon={<Feather name="plus-circle" size={15} color={colors.shopViolet} />}
               onPress={() => setActiveModal('ADD_STOCK')}
               style={styles.gridBtn}
             />
@@ -234,7 +234,7 @@ export default function ItemDetailScreen() {
             <Button
               title="Remove Stock"
               variant="secondary"
-              icon={<Feather name="minus-circle" size={15} color={colors.mist} />}
+              icon={<Feather name="minus-circle" size={15} color={colors.slateInk} />}
               onPress={() => setActiveModal('REMOVE_STOCK')}
               disabled={available <= 0}
               style={styles.gridBtn}
@@ -292,39 +292,40 @@ export default function ItemDetailScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.void,
+    backgroundColor: colors.canvasMist,
   },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: spacing[16],
-    paddingVertical: spacing[12],
+    paddingHorizontal: 16,
+    paddingVertical: 12,
     borderBottomWidth: 1,
-    borderBottomColor: colors.graphite,
+    borderBottomColor: colors.faintBorder,
+    backgroundColor: colors.pureWhite,
   },
   backBtn: {
-    padding: spacing[4],
+    padding: 4,
   },
   headerTitle: {
     fontSize: 16,
     fontWeight: '600',
-    color: colors.paper,
+    color: colors.inkBlack,
     maxWidth: 220,
-    letterSpacing: -0.2,
+    letterSpacing: -0.5,
   },
   headerActions: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: spacing[16],
+    gap: 16,
   },
   actionIconBtn: {
-    padding: spacing[4],
+    padding: 4,
   },
   scrollContent: {
-    padding: spacing[16],
-    paddingBottom: spacing[48],
-    gap: spacing[20],
+    padding: 16,
+    paddingBottom: 48,
+    gap: 20,
   },
   centerBox: {
     flex: 1,
@@ -334,7 +335,7 @@ const styles = StyleSheet.create({
   },
   notFoundText: {
     fontSize: 14,
-    color: colors.fog,
+    color: colors.mutedGray,
     textAlign: 'center',
   },
   itemHeaderBlock: {
@@ -343,22 +344,22 @@ const styles = StyleSheet.create({
   itemName: {
     fontSize: 22,
     fontWeight: '700',
-    color: colors.paper,
-    letterSpacing: -0.4,
+    color: colors.inkBlack,
+    letterSpacing: -1.0,
   },
   badgeRow: {
     flexDirection: 'row',
     alignItems: 'center',
     flexWrap: 'wrap',
-    gap: spacing[8],
+    gap: 8,
   },
   breakdownCard: {
-    gap: spacing[16],
+    gap: 16,
   },
   cardHeaderTitle: {
     fontSize: 11,
     fontWeight: '600',
-    color: colors.fog,
+    color: colors.mutedGray,
     letterSpacing: 0.6,
   },
   primaryMetricRow: {
@@ -370,40 +371,40 @@ const styles = StyleSheet.create({
   primaryMetricValue: {
     fontSize: 38,
     fontWeight: '800',
-    color: colors.paper,
-    letterSpacing: -1,
+    color: colors.inkBlack,
+    letterSpacing: -1.0,
   },
   primaryMetricLabel: {
     fontSize: 11,
     fontWeight: '600',
-    color: colors.fog,
+    color: colors.mutedGray,
     letterSpacing: 0.4,
     marginTop: 2,
   },
   metricDivider: {
     width: 1,
     height: 40,
-    backgroundColor: colors.graphite,
+    backgroundColor: colors.faintBorder,
   },
   secondaryMetricValue: {
     fontSize: 26,
     fontWeight: '600',
-    color: colors.bone,
+    color: colors.slateInk,
     letterSpacing: -0.5,
   },
   secondaryMetricLabel: {
     fontSize: 11,
     fontWeight: '500',
-    color: colors.ash,
+    color: colors.warmFog,
     letterSpacing: 0.4,
     marginTop: 2,
   },
   metricDetailGrid: {
     flexDirection: 'row',
-    gap: spacing[12],
+    gap: 12,
     borderTopWidth: 1,
-    borderTopColor: 'rgba(255, 255, 255, 0.05)',
-    paddingTop: spacing[12],
+    borderTopColor: colors.faintBorder,
+    paddingTop: 12,
   },
   metricTile: {
     flex: 1,
@@ -411,31 +412,31 @@ const styles = StyleSheet.create({
   },
   tileLabel: {
     fontSize: 12,
-    color: colors.fog,
+    color: colors.mutedGray,
   },
   tileValue: {
     fontSize: 15,
     fontWeight: '600',
-    color: colors.mist,
+    color: colors.slateInk,
   },
   notesBox: {
-    backgroundColor: 'rgba(255, 255, 255, 0.02)',
-    borderRadius: radii.input,
-    padding: spacing[10],
+    backgroundColor: colors.canvasMist,
+    borderRadius: 20,
+    padding: 10,
     borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.05)',
+    borderColor: colors.faintBorder,
     gap: 4,
   },
   notesLabel: {
     fontSize: 11,
     fontWeight: '600',
-    color: colors.fog,
+    color: colors.mutedGray,
     textTransform: 'uppercase',
     letterSpacing: 0.5,
   },
   notesBody: {
     fontSize: 13,
-    color: colors.mist,
+    color: colors.slateInk,
     lineHeight: 18,
   },
   sectionBlock: {
@@ -444,14 +445,14 @@ const styles = StyleSheet.create({
   sectionHeaderTitle: {
     fontSize: 11,
     fontWeight: '600',
-    color: colors.fog,
+    color: colors.mutedGray,
     letterSpacing: 0.6,
-    paddingLeft: spacing[4],
+    paddingLeft: 4,
   },
   actionButtonsGrid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: spacing[10],
+    gap: 10,
   },
   gridBtn: {
     flex: 1,
@@ -465,10 +466,10 @@ const styles = StyleSheet.create({
   },
   timelineCount: {
     fontSize: 12,
-    color: colors.fog,
+    color: colors.mutedGray,
   },
   historyCard: {
-    paddingVertical: spacing[12],
-    paddingHorizontal: spacing[16],
+    paddingVertical: 12,
+    paddingHorizontal: 16,
   },
 });

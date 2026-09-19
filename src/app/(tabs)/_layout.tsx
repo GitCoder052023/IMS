@@ -10,19 +10,19 @@ export default function TabLayout() {
       screenOptions={{
         headerShown: false,
         tabBarStyle: {
-          backgroundColor: colors.carbon,
-          borderTopColor: colors.graphite,
+          backgroundColor: '#ffffff',
+          borderTopColor: '#ebebeb',
           borderTopWidth: 1,
           height: Platform.OS === 'ios' ? 84 : 64,
           paddingBottom: Platform.OS === 'ios' ? 24 : 10,
           paddingTop: 8,
         },
-        tabBarActiveTintColor: colors.acidLime,
-        tabBarInactiveTintColor: colors.fog,
+        tabBarActiveTintColor: colors.shopViolet,
+        tabBarInactiveTintColor: colors.mutedGray,
         tabBarLabelStyle: {
           fontSize: 11,
           fontWeight: '500',
-          letterSpacing: -0.1,
+          letterSpacing: -0.2,
         },
       }}
     >

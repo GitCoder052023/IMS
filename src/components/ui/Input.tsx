@@ -37,7 +37,7 @@ export function Input({
           error ? styles.inputError : null,
           style,
         ]}
-        placeholderTextColor={colors.fog}
+        placeholderTextColor="#787574"
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
         {...rest}
@@ -53,42 +53,41 @@ export function Input({
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: spacing[16],
+    marginBottom: 16,
   },
   label: {
-    fontSize: 13,
+    fontSize: 14,
     fontWeight: '500',
-    color: colors.bone,
+    color: '#000000',
     marginBottom: 6,
-    letterSpacing: -0.1,
+    letterSpacing: -0.2,
   },
   input: {
-    backgroundColor: 'rgba(255, 255, 255, 0.03)',
+    backgroundColor: '#ffffff',
     borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.1)',
-    borderRadius: radii.input,
+    borderColor: 'rgba(0,0,0,0.1)',
+    borderRadius: 9999,
     paddingVertical: 10,
-    paddingHorizontal: spacing[12],
-    color: colors.mist,
+    paddingHorizontal: 16,
+    color: '#000000',
     fontSize: 14,
+    letterSpacing: -0.2,
   },
   inputFocused: {
-    borderColor: colors.mist,
-    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+    borderColor: '#000000',
+    backgroundColor: '#ffffff',
   },
   inputError: {
-    borderColor: colors.coralRed,
+    borderColor: '#eb5757',
   },
   errorText: {
     fontSize: 12,
-    color: colors.coralRed,
+    color: '#eb5757',
     marginTop: 4,
-    letterSpacing: -0.1,
   },
   helperText: {
     fontSize: 12,
-    color: colors.fog,
+    color: '#787574',
     marginTop: 4,
-    letterSpacing: -0.1,
   },
 });

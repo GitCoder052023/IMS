@@ -26,7 +26,7 @@ export function InventoryItemCard({ item, onPress }: InventoryItemCardProps) {
         <Text style={styles.name} numberOfLines={1}>
           {item.name}
         </Text>
-        <Feather name="chevron-right" size={16} color={colors.fog} />
+        <Feather name="chevron-right" size={16} color={colors.mutedGray} />
       </View>
 
       {/* 2. Secondary Category Metadata */}
@@ -70,9 +70,9 @@ export function InventoryItemCard({ item, onPress }: InventoryItemCardProps) {
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: spacing[8],
-    paddingVertical: spacing[12],
-    paddingHorizontal: spacing[14],
+    marginBottom: 8,
+    paddingVertical: 12,
+    paddingHorizontal: 14,
     gap: 5,
   },
   topRow: {
@@ -83,14 +83,13 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 15,
     fontWeight: '600',
-    color: colors.paper,
-    letterSpacing: -0.2,
+    color: colors.inkBlack,
+    letterSpacing: -0.5,
     flex: 1,
-    marginRight: spacing[8],
   },
   categoryText: {
     fontSize: 12,
-    color: colors.fog,
+    color: colors.mutedGray,
     fontWeight: '400',
   },
   quantityRow: {
@@ -102,21 +101,21 @@ const styles = StyleSheet.create({
   availableQty: {
     fontSize: 14,
     fontWeight: '700',
-    color: colors.bone,
-    letterSpacing: -0.1,
+    color: colors.inkBlack,
+    letterSpacing: -0.2,
   },
   dotSeparator: {
     fontSize: 12,
-    color: colors.ash,
+    color: colors.coolStone,
   },
   totalQty: {
     fontSize: 13,
-    color: colors.mist,
+    color: colors.mutedGray,
   },
   badgesRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: spacing[8],
+    gap: 8,
     flexWrap: 'wrap',
     marginTop: 2,
   },
@@ -126,16 +125,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingTop: 6,
     borderTopWidth: 1,
-    borderTopColor: 'rgba(255, 255, 255, 0.04)',
+    borderTopColor: colors.faintBorder,
     marginTop: 2,
   },
   minThreshold: {
     fontSize: 11,
-    color: colors.fog,
+    color: colors.mutedGray,
   },
   notesText: {
     fontSize: 11,
-    color: colors.ash,
+    color: colors.coolStone,
     fontStyle: 'italic',
     maxWidth: 160,
   },

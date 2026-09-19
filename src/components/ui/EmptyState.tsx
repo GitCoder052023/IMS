@@ -24,7 +24,7 @@ export function EmptyState({
   return (
     <View style={[styles.container, style]}>
       <View style={styles.iconCircle}>
-        <Feather name={icon} size={28} color={colors.fog} />
+        <Feather name={icon} size={28} color="#787574" />
       </View>
       <Text style={styles.title}>{title}</Text>
       <Text style={styles.description}>{description}</Text>
@@ -33,7 +33,7 @@ export function EmptyState({
           title={actionTitle}
           onPress={onAction}
           variant="primary"
-          icon={<Feather name="plus" size={16} color={colors.void} />}
+          icon={<Feather name="plus" size={16} color="#ffffff" />}
           style={styles.button}
         />
       )}
@@ -45,37 +45,40 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: spacing[40],
-    paddingHorizontal: spacing[24],
+    paddingVertical: 40,
+    paddingHorizontal: 24,
   },
   iconCircle: {
     width: 60,
     height: 60,
     borderRadius: 30,
-    backgroundColor: colors.carbon,
-    borderWidth: 1,
-    borderColor: colors.graphite,
+    backgroundColor: '#ffffff',
+    shadowColor: '#000',
+    shadowOpacity: 0.06,
+    shadowRadius: 8,
+    shadowOffset: { width: 0, height: 2 },
+    elevation: 2,
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: spacing[16],
+    marginBottom: 16,
   },
   title: {
     fontSize: 16,
     fontWeight: '600',
-    color: colors.paper,
-    marginBottom: spacing[8],
+    color: '#000000',
+    marginBottom: 8,
     textAlign: 'center',
-    letterSpacing: -0.2,
+    letterSpacing: -0.5,
   },
   description: {
     fontSize: 14,
     lineHeight: 20,
-    color: colors.fog,
+    color: '#787574',
     textAlign: 'center',
-    marginBottom: spacing[20],
+    marginBottom: 20,
     maxWidth: 320,
   },
   button: {
-    marginTop: spacing[4],
+    marginTop: 4,
   },
 });

@@ -72,7 +72,7 @@ export default function SettingsScreen() {
           <Card style={styles.infoCard}>
             <View style={styles.infoRow}>
               <View style={styles.infoTitleCol}>
-                <Feather name="hard-drive" size={16} color={colors.mist} />
+                <Feather name="hard-drive" size={16} color={colors.mutedGray} />
                 <Text style={styles.infoLabel}>Persistence Mode</Text>
               </View>
               <Text style={styles.infoValue}>100% Offline Local Storage</Text>
@@ -82,7 +82,7 @@ export default function SettingsScreen() {
 
             <View style={styles.infoRow}>
               <View style={styles.infoTitleCol}>
-                <Feather name="layers" size={16} color={colors.mist} />
+                <Feather name="layers" size={16} color={colors.mutedGray} />
                 <Text style={styles.infoLabel}>Stored Equipment Items</Text>
               </View>
               <Text style={styles.infoValue}>{items.length} items</Text>
@@ -92,7 +92,7 @@ export default function SettingsScreen() {
 
             <View style={styles.infoRow}>
               <View style={styles.infoTitleCol}>
-                <Feather name="clock" size={16} color={colors.mist} />
+                <Feather name="clock" size={16} color={colors.mutedGray} />
                 <Text style={styles.infoLabel}>Adjustment History Logs</Text>
               </View>
               <Text style={styles.infoValue}>{history.length} records</Text>
@@ -105,7 +105,7 @@ export default function SettingsScreen() {
           <Text style={styles.sectionLabel}>DATA MANAGEMENT</Text>
           <Card style={styles.dangerCard}>
             <View style={styles.dangerHeader}>
-              <Feather name="alert-circle" size={18} color={colors.coralRed} />
+              <Feather name="alert-circle" size={18} color="#eb5757" />
               <Text style={styles.dangerTitle}>Clear All Inventory</Text>
             </View>
             <Text style={styles.dangerDescription}>
@@ -115,7 +115,7 @@ export default function SettingsScreen() {
             <Button
               title="Clear All Inventory"
               variant="danger"
-              icon={<Feather name="trash-2" size={15} color={colors.coralRed} />}
+              icon={<Feather name="trash-2" size={15} color="#eb5757" />}
               onPress={handleClearAll}
               loading={isClearing}
               disabled={items.length === 0 && history.length === 0}
@@ -131,118 +131,84 @@ export default function SettingsScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.void,
+    backgroundColor: colors.canvasMist,
   },
   header: {
-    paddingHorizontal: spacing[16],
-    paddingVertical: spacing[12],
+    paddingHorizontal: 16,
+    paddingVertical: 12,
     borderBottomWidth: 1,
-    borderBottomColor: colors.graphite,
+    borderBottomColor: '#ebebeb',
+    backgroundColor: '#ffffff',
   },
   screenTitle: {
     fontSize: 18,
     fontWeight: '700',
-    color: colors.paper,
-    letterSpacing: -0.3,
-  },
-  screenSubtitle: {
-    fontSize: 12,
-    color: colors.fog,
-    marginTop: 2,
+    color: '#000000',
+    letterSpacing: -0.5,
   },
   scrollContent: {
-    padding: spacing[16],
-    paddingBottom: spacing[40],
-    gap: spacing[20],
+    padding: 16,
+    paddingBottom: 40,
+    gap: 20,
   },
   section: {
-    gap: spacing[8],
+    gap: 8,
   },
   sectionLabel: {
     fontSize: 11,
     fontWeight: '600',
-    color: colors.fog,
+    color: '#787574',
     letterSpacing: 0.6,
-    paddingLeft: spacing[4],
+    paddingLeft: 4,
   },
   infoCard: {
-    gap: spacing[10],
+    gap: 10,
   },
   infoRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingVertical: spacing[4],
+    paddingVertical: 4,
   },
   infoTitleCol: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: spacing[8],
+    gap: 8,
   },
   infoLabel: {
     fontSize: 13,
-    color: colors.mist,
+    color: '#787574',
   },
   infoValue: {
     fontSize: 13,
     fontWeight: '500',
-    color: colors.paper,
+    color: '#000000',
   },
   divider: {
     height: 1,
-    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+    backgroundColor: '#ebebeb',
   },
   dangerCard: {
-    backgroundColor: 'rgba(235, 87, 87, 0.05)',
-    borderColor: 'rgba(235, 87, 87, 0.2)',
-    gap: spacing[10],
+    backgroundColor: 'rgba(235, 87, 87, 0.04)',
+    borderColor: 'rgba(235, 87, 87, 0.15)',
+    gap: 10,
   },
   dangerHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: spacing[8],
+    gap: 8,
   },
   dangerTitle: {
     fontSize: 14,
     fontWeight: '600',
-    color: colors.coralRed,
+    color: '#eb5757',
   },
   dangerDescription: {
     fontSize: 13,
-    color: colors.fog,
+    color: '#787574',
     lineHeight: 18,
   },
   dangerBtn: {
-    marginTop: spacing[6],
-  },
-  aboutTitle: {
-    fontSize: 14,
-    fontWeight: '600',
-    color: colors.paper,
-    marginBottom: spacing[4],
-  },
-  aboutText: {
-    fontSize: 13,
-    color: colors.fog,
-    lineHeight: 18,
-  },
-  sportsList: {
-    marginTop: spacing[4],
-    gap: 6,
-  },
-  sportItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing[8],
-  },
-  bullet: {
-    width: 4,
-    height: 4,
-    borderRadius: 2,
-    backgroundColor: colors.acidLime,
-  },
-  sportText: {
-    fontSize: 12,
-    color: colors.mist,
+    marginTop: 6,
   },
 });

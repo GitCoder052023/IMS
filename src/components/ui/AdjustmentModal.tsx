@@ -176,8 +176,8 @@ export function AdjustmentModal({
                   size={20}
                   color={
                     config.buttonVariant === 'danger'
-                      ? colors.coralRed
-                      : colors.acidLime
+                      ? '#eb5757'
+                      : '#5433eb'
                   }
                 />
                 <Text style={styles.title}>{config.title}</Text>
@@ -188,7 +188,7 @@ export function AdjustmentModal({
                 style={styles.closeButton}
                 accessibilityLabel="Close"
               >
-                <Feather name="x" size={18} color={colors.fog} />
+                <Feather name="x" size={18} color="#787574" />
               </Pressable>
             </View>
 
@@ -248,10 +248,10 @@ export function AdjustmentModal({
 const styles = StyleSheet.create({
   backdrop: {
     flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.75)',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: spacing[16],
+    padding: 16,
   },
   scrim: {
     position: 'absolute',
@@ -263,47 +263,50 @@ const styles = StyleSheet.create({
   dialogContainer: {
     width: '100%',
     maxWidth: 420,
-    backgroundColor: colors.obsidian,
-    borderRadius: radii.card,
-    borderWidth: 1,
-    borderColor: colors.graphite,
+    backgroundColor: '#ffffff',
+    borderRadius: 28,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.1,
+    shadowRadius: 6,
+    elevation: 4,
     overflow: 'hidden',
   },
   dialogContent: {
-    padding: spacing[20],
+    padding: 20,
   },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: spacing[4],
+    marginBottom: 4,
   },
   headerTitleRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: spacing[8],
+    gap: 8,
   },
   title: {
     fontSize: 17,
     fontWeight: '600',
-    color: colors.paper,
-    letterSpacing: -0.2,
+    color: '#000000',
+    letterSpacing: -0.5,
   },
   closeButton: {
-    padding: spacing[4],
+    padding: 4,
   },
   itemName: {
     fontSize: 14,
     fontWeight: '500',
-    color: colors.bone,
+    color: '#332f2d',
     marginTop: 2,
     marginBottom: 4,
   },
   subtitle: {
     fontSize: 13,
-    color: colors.fog,
+    color: '#787574',
     lineHeight: 18,
-    marginBottom: spacing[16],
+    marginBottom: 16,
   },
   noteInput: {
     minHeight: 60,
@@ -311,8 +314,8 @@ const styles = StyleSheet.create({
   },
   actionsRow: {
     flexDirection: 'row',
-    gap: spacing[12],
-    marginTop: spacing[8],
+    gap: 12,
+    marginTop: 8,
   },
   actionBtn: {
     flex: 1,

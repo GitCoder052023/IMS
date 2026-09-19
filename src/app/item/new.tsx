@@ -89,7 +89,7 @@ export default function AddItemScreen() {
           hitSlop={8}
           style={styles.headerBtn}
         >
-          <Feather name="x" size={20} color={colors.mist} />
+          <Feather name="x" size={20} color={colors.slateInk} />
         </Pressable>
         <Text style={styles.headerTitle}>Add Equipment Item</Text>
         <View style={{ width: 28 }} />
@@ -299,73 +299,74 @@ export default function AddItemScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.void,
+    backgroundColor: colors.canvasMist,
   },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: spacing[16],
-    paddingVertical: spacing[12],
+    paddingHorizontal: 16,
+    paddingVertical: 12,
     borderBottomWidth: 1,
-    borderBottomColor: colors.graphite,
+    borderBottomColor: colors.faintBorder,
+    backgroundColor: colors.pureWhite,
   },
   headerBtn: {
-    padding: spacing[4],
+    padding: 4,
   },
   headerTitle: {
     fontSize: 16,
     fontWeight: '600',
-    color: colors.paper,
-    letterSpacing: -0.2,
+    color: colors.inkBlack,
+    letterSpacing: -0.5,
   },
   scrollContent: {
-    padding: spacing[16],
-    paddingBottom: spacing[48],
+    padding: 16,
+    paddingBottom: 48,
   },
   fieldSection: {
     marginBottom: spacing[16],
   },
   sectionLabel: {
-    fontSize: 13,
+    fontSize: 14,
     fontWeight: '500',
-    color: colors.bone,
-    marginBottom: spacing[8],
-    letterSpacing: -0.1,
+    color: colors.inkBlack,
+    marginBottom: 8,
+    letterSpacing: -0.2,
   },
   chipsContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: spacing[8],
+    gap: 8,
   },
   chip: {
-    paddingHorizontal: spacing[12],
+    paddingHorizontal: 12,
     paddingVertical: 6,
-    borderRadius: radii.pill,
-    backgroundColor: 'rgba(255, 255, 255, 0.04)',
+    borderRadius: 9999,
+    backgroundColor: colors.pureWhite,
     borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.08)',
+    borderColor: colors.faintBorder,
   },
   chipActive: {
-    backgroundColor: colors.acidLime,
-    borderColor: colors.acidLime,
+    backgroundColor: colors.shopViolet,
+    borderColor: colors.shopViolet,
   },
   chipText: {
     fontSize: 12,
-    color: colors.mist,
+    color: colors.slateInk,
     fontWeight: '500',
   },
   chipTextActive: {
-    color: colors.void,
+    color: colors.pureWhite,
     fontWeight: '600',
   },
   customInputContainer: {
-    marginTop: spacing[8],
+    marginTop: 8,
     marginBottom: 0,
   },
   row: {
     flexDirection: 'row',
-    gap: spacing[12],
+    gap: 12,
   },
   col: {
     flex: 1,
@@ -380,6 +381,6 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
   submitBtn: {
-    marginTop: spacing[8],
+    marginTop: 8,
   },
 });

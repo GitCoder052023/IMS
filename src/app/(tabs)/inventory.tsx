@@ -233,7 +233,7 @@ export default function InventoryScreen() {
         <Button
           title="Add Item"
           variant="primary"
-          icon={<Feather name="plus" size={15} color={colors.void} />}
+          icon={<Feather name="plus" size={15} color={colors.pureWhite} />}
           onPress={() => router.push('/item/new')}
         />
       </View>
@@ -241,11 +241,11 @@ export default function InventoryScreen() {
       {/* 2. Search Box */}
       <View style={styles.searchContainer}>
         <View style={styles.searchBox}>
-          <Feather name="search" size={16} color={colors.fog} />
+          <Feather name="search" size={16} color={colors.mutedGray} />
           <TextInput
             style={styles.searchInput}
             placeholder="Search equipment, category, notes..."
-            placeholderTextColor={colors.fog}
+            placeholderTextColor={colors.mutedGray}
             value={searchQuery}
             onChangeText={setSearchQuery}
             returnKeyType="search"
@@ -253,7 +253,7 @@ export default function InventoryScreen() {
           />
           {searchQuery.length > 0 && (
             <Pressable onPress={() => setSearchQuery('')} hitSlop={8}>
-              <Feather name="x-circle" size={16} color={colors.fog} />
+              <Feather name="x-circle" size={16} color={colors.mutedGray} />
             </Pressable>
           )}
         </View>
@@ -304,7 +304,7 @@ export default function InventoryScreen() {
             <Feather
               name="sliders"
               size={13}
-              color={filterBadgeCount > 0 ? colors.acidLime : colors.mist}
+              color={filterBadgeCount > 0 ? colors.shopViolet : colors.slateInk}
             />
             <Text
               style={[
@@ -318,11 +318,11 @@ export default function InventoryScreen() {
           </Pressable>
 
           <Pressable style={styles.controlBtn} onPress={() => setIsSortModalOpen(true)}>
-            <Feather name="bar-chart-2" size={13} color={colors.mist} />
+            <Feather name="bar-chart-2" size={13} color={colors.slateInk} />
             <Text style={styles.controlBtnText} numberOfLines={1}>
               {currentSortLabel}
             </Text>
-            <Feather name="chevron-down" size={13} color={colors.fog} />
+            <Feather name="chevron-down" size={13} color={colors.mutedGray} />
           </Pressable>
         </View>
       </View>
@@ -376,7 +376,7 @@ export default function InventoryScreen() {
                     <Feather
                       name={isCollapsed ? 'chevron-right' : 'chevron-down'}
                       size={16}
-                      color={colors.fog}
+                      color={colors.mutedGray}
                     />
                   </Pressable>
 
@@ -414,7 +414,7 @@ export default function InventoryScreen() {
                   <Feather
                     name="arrow-left"
                     size={14}
-                    color={safePage <= 1 ? colors.ash : colors.mist}
+                    color={safePage <= 1 ? colors.warmFog : colors.slateInk}
                   />
                   <Text
                     style={[
@@ -449,7 +449,7 @@ export default function InventoryScreen() {
                   <Feather
                     name="arrow-right"
                     size={14}
-                    color={safePage >= totalPages ? colors.ash : colors.mist}
+                    color={safePage >= totalPages ? colors.warmFog : colors.slateInk}
                   />
                 </Pressable>
               </View>
@@ -481,7 +481,7 @@ export default function InventoryScreen() {
                 hitSlop={8}
                 style={styles.modalCloseBtn}
               >
-                <Feather name="x" size={18} color={colors.fog} />
+                <Feather name="x" size={18} color={colors.mutedGray} />
               </Pressable>
             </View>
 
@@ -521,7 +521,7 @@ export default function InventoryScreen() {
                           {opt.label}
                         </Text>
                         {isSelected && (
-                          <Feather name="check" size={14} color={colors.acidLime} />
+                          <Feather name="check" size={14} color={colors.shopViolet} />
                         )}
                       </Pressable>
                     );
@@ -553,7 +553,7 @@ export default function InventoryScreen() {
                           {cat === 'ALL' ? 'All Categories' : cat}
                         </Text>
                         {isSelected && (
-                          <Feather name="check" size={14} color={colors.acidLime} />
+                          <Feather name="check" size={14} color={colors.shopViolet} />
                         )}
                       </Pressable>
                     );
@@ -607,7 +607,7 @@ export default function InventoryScreen() {
                 hitSlop={8}
                 style={styles.modalCloseBtn}
               >
-                <Feather name="x" size={18} color={colors.fog} />
+                <Feather name="x" size={18} color={colors.mutedGray} />
               </Pressable>
             </View>
 
@@ -635,7 +635,7 @@ export default function InventoryScreen() {
                       {opt.label}
                     </Text>
                     {isSelected && (
-                      <Feather name="check" size={16} color={colors.acidLime} />
+                      <Feather name="check" size={16} color={colors.shopViolet} />
                     )}
                   </Pressable>
                 );
@@ -651,16 +651,17 @@ export default function InventoryScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.void,
+    backgroundColor: colors.canvasMist,
   },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: spacing[16],
-    paddingVertical: spacing[12],
+    paddingHorizontal: 16,
+    paddingVertical: 12,
     borderBottomWidth: 1,
-    borderBottomColor: colors.graphite,
+    borderBottomColor: colors.faintBorder,
+    backgroundColor: colors.pureWhite,
   },
   headerTextCol: {
     gap: 2,
@@ -668,33 +669,39 @@ const styles = StyleSheet.create({
   screenTitle: {
     fontSize: 20,
     fontWeight: '700',
-    color: colors.paper,
-    letterSpacing: -0.3,
+    color: colors.inkBlack,
+    letterSpacing: -1.0,
   },
   itemCountText: {
     fontSize: 12,
-    color: colors.fog,
+    color: colors.mutedGray,
   },
   searchContainer: {
-    paddingHorizontal: spacing[16],
-    paddingTop: spacing[12],
-    paddingBottom: spacing[8],
+    paddingHorizontal: 16,
+    paddingTop: 12,
+    paddingBottom: 8,
   },
   searchBox: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: 'rgba(255, 255, 255, 0.03)',
+    backgroundColor: colors.pureWhite,
     borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.08)',
-    borderRadius: radii.input,
-    paddingHorizontal: spacing[12],
-    height: 40,
-    gap: spacing[8],
+    borderColor: 'rgba(0,0,0,0.1)',
+    borderRadius: 9999,
+    paddingHorizontal: 16,
+    height: 44,
+    gap: 8,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.06,
+    shadowRadius: 8,
+    elevation: 2,
   },
   searchInput: {
     flex: 1,
-    color: colors.mist,
+    color: colors.inkBlack,
     fontSize: 14,
+    letterSpacing: -0.2,
   },
   filterBar: {
     paddingBottom: spacing[10],
@@ -705,24 +712,24 @@ const styles = StyleSheet.create({
     gap: spacing[8],
   },
   statusPill: {
-    paddingHorizontal: spacing[12],
-    paddingVertical: 5,
-    borderRadius: radii.pill,
-    backgroundColor: 'rgba(255, 255, 255, 0.04)',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 9999,
+    backgroundColor: colors.pureWhite,
     borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.08)',
+    borderColor: colors.faintBorder,
   },
   statusPillActive: {
-    backgroundColor: colors.acidLime,
-    borderColor: colors.acidLime,
+    backgroundColor: colors.shopViolet,
+    borderColor: colors.shopViolet,
   },
   statusPillText: {
     fontSize: 12,
     fontWeight: '500',
-    color: colors.mist,
+    color: colors.slateInk,
   },
   statusPillTextActive: {
-    color: colors.void,
+    color: colors.pureWhite,
     fontWeight: '600',
   },
   controlsRow: {
@@ -734,24 +741,24 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 6,
-    paddingHorizontal: spacing[12],
+    paddingHorizontal: 12,
     paddingVertical: 6,
-    backgroundColor: colors.carbon,
-    borderRadius: radii.button,
+    backgroundColor: colors.pureWhite,
+    borderRadius: 9999,
     borderWidth: 1,
-    borderColor: colors.graphite,
+    borderColor: colors.faintBorder,
   },
   controlBtnActive: {
-    borderColor: 'rgba(228, 242, 34, 0.4)',
-    backgroundColor: 'rgba(228, 242, 34, 0.06)',
+    borderColor: 'rgba(84,51,235,0.3)',
+    backgroundColor: 'rgba(84,51,235,0.05)',
   },
   controlBtnText: {
     fontSize: 12,
     fontWeight: '500',
-    color: colors.mist,
+    color: colors.slateInk,
   },
   controlBtnTextActive: {
-    color: colors.acidLime,
+    color: colors.shopViolet,
     fontWeight: '600',
   },
   scrollContent: {
@@ -770,10 +777,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingVertical: spacing[6],
-    paddingHorizontal: spacing[4],
+    paddingVertical: 6,
+    paddingHorizontal: 4,
     borderBottomWidth: 1,
-    borderBottomColor: 'rgba(255, 255, 255, 0.05)',
+    borderBottomColor: colors.faintBorder,
   },
   categoryHeaderTitleRow: {
     flexDirection: 'row',
@@ -783,35 +790,35 @@ const styles = StyleSheet.create({
   categoryHeaderTitle: {
     fontSize: 12,
     fontWeight: '700',
-    color: colors.bone,
+    color: colors.inkBlack,
     letterSpacing: 0.6,
   },
   categoryCountBadge: {
-    backgroundColor: colors.slate,
+    backgroundColor: colors.canvasMist,
     paddingHorizontal: 6,
     paddingVertical: 1,
-    borderRadius: radii.badge,
+    borderRadius: 9999,
   },
   categoryCountText: {
     fontSize: 11,
     fontWeight: '600',
-    color: colors.fog,
+    color: colors.mutedGray,
   },
   categoryItemsContainer: {
     gap: 2,
     paddingTop: spacing[4],
   },
   paginationContainer: {
-    paddingTop: spacing[12],
-    paddingBottom: spacing[8],
+    paddingTop: 12,
+    paddingBottom: 8,
     borderTopWidth: 1,
-    borderTopColor: colors.graphite,
-    gap: spacing[12],
+    borderTopColor: colors.faintBorder,
+    gap: 12,
     alignItems: 'center',
   },
   paginationSummaryText: {
     fontSize: 12,
-    color: colors.fog,
+    color: colors.mutedGray,
   },
   paginationControls: {
     flexDirection: 'row',
@@ -824,12 +831,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 4,
-    paddingHorizontal: spacing[12],
+    paddingHorizontal: 12,
     paddingVertical: 6,
-    borderRadius: radii.button,
-    backgroundColor: colors.carbon,
+    borderRadius: 9999,
+    backgroundColor: colors.pureWhite,
     borderWidth: 1,
-    borderColor: colors.graphite,
+    borderColor: colors.faintBorder,
   },
   pageNavBtnDisabled: {
     opacity: 0.4,
@@ -837,19 +844,19 @@ const styles = StyleSheet.create({
   pageNavBtnText: {
     fontSize: 12,
     fontWeight: '500',
-    color: colors.mist,
+    color: colors.slateInk,
   },
   pageNavBtnTextDisabled: {
-    color: colors.ash,
+    color: colors.warmFog,
   },
   pageIndicatorText: {
     fontSize: 12,
     fontWeight: '600',
-    color: colors.bone,
+    color: colors.inkBlack,
   },
   modalBackdrop: {
     flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.75)',
+    backgroundColor: 'rgba(0,0,0,0.5)',
     justifyContent: 'flex-end',
   },
   modalScrim: {
@@ -860,29 +867,33 @@ const styles = StyleSheet.create({
     bottom: 0,
   },
   modalSheetContainer: {
-    backgroundColor: colors.obsidian,
-    borderTopLeftRadius: 16,
-    borderTopRightRadius: 16,
-    borderWidth: 1,
-    borderColor: colors.graphite,
+    backgroundColor: colors.pureWhite,
+    borderTopLeftRadius: 28,
+    borderTopRightRadius: 28,
     maxHeight: '80%',
-    paddingBottom: Platform.OS === 'ios' ? spacing[32] : spacing[16],
+    paddingBottom: Platform.OS === 'ios' ? 32 : 16,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: -2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 6,
+    elevation: 4,
   },
   modalHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: spacing[16],
+    padding: 16,
     borderBottomWidth: 1,
-    borderBottomColor: colors.graphite,
+    borderBottomColor: colors.faintBorder,
   },
   modalTitle: {
     fontSize: 16,
     fontWeight: '600',
-    color: colors.paper,
+    color: colors.inkBlack,
+    letterSpacing: -0.5,
   },
   modalCloseBtn: {
-    padding: spacing[4],
+    padding: 4,
   },
   modalScrollContent: {
     padding: spacing[16],
@@ -904,32 +915,32 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingVertical: spacing[10],
-    paddingHorizontal: spacing[12],
-    borderRadius: radii.button,
-    backgroundColor: colors.carbon,
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+    borderRadius: 9999,
+    backgroundColor: colors.canvasMist,
     borderWidth: 1,
-    borderColor: colors.graphite,
+    borderColor: colors.faintBorder,
   },
   modalOptionCardActive: {
-    borderColor: 'rgba(228, 242, 34, 0.4)',
-    backgroundColor: 'rgba(228, 242, 34, 0.05)',
+    borderColor: 'rgba(84,51,235,0.3)',
+    backgroundColor: 'rgba(84,51,235,0.05)',
   },
   modalOptionText: {
     fontSize: 13,
-    color: colors.mist,
+    color: colors.slateInk,
     fontWeight: '500',
   },
   modalOptionTextActive: {
-    color: colors.paper,
+    color: colors.inkBlack,
     fontWeight: '600',
   },
   modalActionsRow: {
     flexDirection: 'row',
-    padding: spacing[16],
-    gap: spacing[12],
+    padding: 16,
+    gap: 12,
     borderTopWidth: 1,
-    borderTopColor: colors.graphite,
+    borderTopColor: colors.faintBorder,
   },
   modalActionBtn: {
     flex: 1,
@@ -942,24 +953,24 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingVertical: spacing[12],
-    paddingHorizontal: spacing[14],
-    borderRadius: radii.button,
-    backgroundColor: colors.carbon,
+    paddingVertical: 12,
+    paddingHorizontal: 14,
+    borderRadius: 9999,
+    backgroundColor: colors.canvasMist,
     borderWidth: 1,
-    borderColor: colors.graphite,
+    borderColor: colors.faintBorder,
   },
   sortOptionRowActive: {
-    borderColor: 'rgba(228, 242, 34, 0.4)',
-    backgroundColor: 'rgba(228, 242, 34, 0.05)',
+    borderColor: 'rgba(84,51,235,0.3)',
+    backgroundColor: 'rgba(84,51,235,0.05)',
   },
   sortOptionText: {
     fontSize: 13,
-    color: colors.mist,
+    color: colors.slateInk,
     fontWeight: '500',
   },
   sortOptionTextActive: {
-    color: colors.paper,
+    color: colors.inkBlack,
     fontWeight: '600',
   },
 });
