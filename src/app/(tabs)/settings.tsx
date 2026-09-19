@@ -115,7 +115,7 @@ export default function SettingsScreen() {
             <Button
               title="Clear All Inventory"
               variant="danger"
-              icon={<Feather name="trash-2" size={15} color="#eb5757" />}
+              icon={<Feather name="trash-2" size={15} color="#ffffff" />}
               onPress={handleClearAll}
               loading={isClearing}
               disabled={items.length === 0 && history.length === 0}
@@ -189,8 +189,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#ebebeb',
   },
   dangerCard: {
-    backgroundColor: 'rgba(235, 87, 87, 0.04)',
-    borderColor: 'rgba(235, 87, 87, 0.15)',
     gap: 10,
   },
   dangerHeader: {
@@ -202,6 +200,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '600',
     color: '#eb5757',
+    letterSpacing: -0.2,
   },
   dangerDescription: {
     fontSize: 13,

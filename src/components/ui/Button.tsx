@@ -67,7 +67,7 @@ export function Button({
       {loading ? (
         <ActivityIndicator
           size="small"
-          color={variant === 'primary' ? '#ffffff' : '#787574'}
+          color={variant === 'primary' || variant === 'danger' ? '#ffffff' : '#787574'}
         />
       ) : (
         <>
@@ -108,9 +108,12 @@ const styles = StyleSheet.create({
     borderColor: '#ebebeb',
   },
   danger: {
-    backgroundColor: 'rgba(235, 87, 87, 0.08)',
-    borderWidth: 1,
-    borderColor: 'rgba(235, 87, 87, 0.2)',
+    backgroundColor: '#eb5757',
+    shadowColor: '#eb5757',
+    shadowOpacity: 0.2,
+    shadowRadius: 12,
+    shadowOffset: { width: 0, height: 4 },
+    elevation: 3,
   },
   pill: {
     backgroundColor: '#ffffff',
@@ -144,9 +147,10 @@ const styles = StyleSheet.create({
     letterSpacing: -0.2,
   },
   textDanger: {
-    color: '#eb5757',
+    color: '#ffffff',
     fontSize: 14,
     fontWeight: '600',
+    letterSpacing: -0.2,
   },
   textPill: {
     color: '#000000',
