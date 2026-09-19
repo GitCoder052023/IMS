@@ -1,10 +1,12 @@
 import React from 'react';
-import { View, Text, StyleSheet, ViewStyle, StyleProp } from 'react-native';
-import { colors, radii, spacing } from '../../theme/tokens';
-import { InventoryStatus } from '../../types/inventory';
+import { View, Text, ViewStyle, StyleProp } from 'react-native';
+import { colors } from '../../theme';
+import { styles } from './StatusBadge.styles';
+
+export type StatusBadgeType = 'IN_STOCK' | 'LOW_STOCK' | 'OUT_OF_STOCK';
 
 interface StatusBadgeProps {
-  status: InventoryStatus;
+  status: StatusBadgeType;
   style?: StyleProp<ViewStyle>;
 }
 
@@ -16,8 +18,8 @@ export function StatusBadge({ status, style }: StatusBadgeProps) {
           label: 'In Stock',
           bg: 'rgba(39, 166, 68, 0.1)',
           border: 'rgba(39, 166, 68, 0.2)',
-          text: '#27a644',
-          dot: '#27a644',
+          text: colors.pulseGreen,
+          dot: colors.pulseGreen,
         };
       case 'LOW_STOCK':
         return {
@@ -25,15 +27,15 @@ export function StatusBadge({ status, style }: StatusBadgeProps) {
           bg: 'rgba(245, 158, 11, 0.1)',
           border: 'rgba(245, 158, 11, 0.2)',
           text: '#d97706',
-          dot: '#f59e0b',
+          dot: colors.amber,
         };
       case 'OUT_OF_STOCK':
         return {
           label: 'Out of Stock',
           bg: 'rgba(235, 87, 87, 0.1)',
           border: 'rgba(235, 87, 87, 0.2)',
-          text: '#eb5757',
-          dot: '#eb5757',
+          text: colors.coralRed,
+          dot: colors.coralRed,
         };
     }
   };
@@ -97,56 +99,3 @@ export function CategoryTag({ category, style }: CategoryTagProps) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  badge: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: 3,
-    paddingHorizontal: 8,
-    borderRadius: 9999,
-    borderWidth: 1,
-    alignSelf: 'flex-start',
-    gap: 6,
-  },
-  dot: {
-    width: 6,
-    height: 6,
-    borderRadius: 3,
-  },
-  badgeText: {
-    fontSize: 12,
-    fontWeight: '500',
-    letterSpacing: -0.1,
-  },
-  damagedBadge: {
-    paddingVertical: 3,
-    paddingHorizontal: 8,
-    borderRadius: 9999,
-    backgroundColor: 'rgba(235, 87, 87, 0.08)',
-    borderWidth: 1,
-    borderColor: 'rgba(235, 87, 87, 0.15)',
-    alignSelf: 'flex-start',
-  },
-  damagedText: {
-    color: '#eb5757',
-    fontSize: 12,
-    fontWeight: '500',
-    letterSpacing: -0.1,
-  },
-  categoryTag: {
-    paddingVertical: 2,
-    paddingHorizontal: 8,
-    borderRadius: 9999,
-    backgroundColor: 'rgba(84, 51, 235, 0.08)',
-    borderWidth: 1,
-    borderColor: 'rgba(84, 51, 235, 0.15)',
-    alignSelf: 'flex-start',
-  },
-  categoryText: {
-    color: '#5433eb',
-    fontSize: 12,
-    fontWeight: '400',
-    letterSpacing: -0.1,
-  },
-});

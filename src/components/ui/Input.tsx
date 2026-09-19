@@ -3,12 +3,12 @@ import {
   View,
   Text,
   TextInput,
-  StyleSheet,
   TextInputProps,
   ViewStyle,
   StyleProp,
 } from 'react-native';
-import { colors, radii, spacing } from '../../theme/tokens';
+import { colors } from '../../theme';
+import { styles } from './Input.styles';
 
 interface InputProps extends TextInputProps {
   label?: string;
@@ -37,7 +37,7 @@ export function Input({
           error ? styles.inputError : null,
           style,
         ]}
-        placeholderTextColor="#787574"
+        placeholderTextColor={colors.mutedGray}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
         {...rest}
@@ -50,44 +50,3 @@ export function Input({
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    marginBottom: 16,
-  },
-  label: {
-    fontSize: 14,
-    fontWeight: '500',
-    color: '#000000',
-    marginBottom: 6,
-    letterSpacing: -0.2,
-  },
-  input: {
-    backgroundColor: '#ffffff',
-    borderWidth: 1,
-    borderColor: 'rgba(0,0,0,0.1)',
-    borderRadius: 9999,
-    paddingVertical: 10,
-    paddingHorizontal: 16,
-    color: '#000000',
-    fontSize: 14,
-    letterSpacing: -0.2,
-  },
-  inputFocused: {
-    borderColor: '#000000',
-    backgroundColor: '#ffffff',
-  },
-  inputError: {
-    borderColor: '#eb5757',
-  },
-  errorText: {
-    fontSize: 12,
-    color: '#eb5757',
-    marginTop: 4,
-  },
-  helperText: {
-    fontSize: 12,
-    color: '#787574',
-    marginTop: 4,
-  },
-});

@@ -2,7 +2,7 @@ import React from 'react';
 import { Tabs } from 'expo-router';
 import { Feather } from '@expo/vector-icons';
 import { Platform } from 'react-native';
-import { colors } from '../../theme/tokens';
+import { colors } from '../../theme';
 
 export default function TabLayout() {
   return (
@@ -10,8 +10,8 @@ export default function TabLayout() {
       screenOptions={{
         headerShown: false,
         tabBarStyle: {
-          backgroundColor: '#ffffff',
-          borderTopColor: '#ebebeb',
+          backgroundColor: colors.pureWhite,
+          borderTopColor: colors.faintBorder,
           borderTopWidth: 1,
           height: Platform.OS === 'ios' ? 84 : 64,
           paddingBottom: Platform.OS === 'ios' ? 24 : 10,

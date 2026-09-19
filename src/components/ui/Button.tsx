@@ -2,13 +2,13 @@ import React from 'react';
 import {
   Pressable,
   Text,
-  StyleSheet,
   ActivityIndicator,
   ViewStyle,
   TextStyle,
   StyleProp,
 } from 'react-native';
-import { colors, radii, spacing } from '../../theme/tokens';
+import { colors } from '../../theme';
+import { styles } from './Button.styles';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'danger' | 'pill';
 
@@ -34,12 +34,13 @@ export function Button({
   textStyle,
 }: ButtonProps) {
   const getContainerStyle = (pressed: boolean): StyleProp<ViewStyle> => {
-    const baseStyle = styles.base;
-    const variantStyle = styles[variant];
-    const pressedStyle = pressed ? styles.pressed : null;
-    const disabledStyle = disabled ? styles.disabled : null;
-
-    return [baseStyle, variantStyle, pressedStyle, disabledStyle, style];
+    return [
+      styles.base,
+      styles[variant],
+      pressed && styles.pressed,
+      disabled && styles.disabled,
+      style,
+    ];
   };
 
   const getTextStyle = (): StyleProp<TextStyle> => {
@@ -67,7 +68,7 @@ export function Button({
       {loading ? (
         <ActivityIndicator
           size="small"
-          color={variant === 'primary' || variant === 'danger' ? '#ffffff' : '#787574'}
+          color={variant === 'primary' || variant === 'danger' ? colors.pureWhite : colors.mutedGray}
         />
       ) : (
         <>
@@ -78,83 +79,3 @@ export function Button({
     </Pressable>
   );
 }
-
-const styles = StyleSheet.create({
-  base: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 8,
-    borderRadius: 9999,
-    paddingVertical: 10,
-    paddingHorizontal: 16,
-  },
-  primary: {
-    backgroundColor: '#5433eb',
-    shadowColor: '#5433eb',
-    shadowOpacity: 0.34,
-    shadowRadius: 24,
-    shadowOffset: { width: 0, height: 4 },
-    elevation: 6,
-  },
-  secondary: {
-    backgroundColor: '#ffffff',
-    borderWidth: 1,
-    borderColor: '#ebebeb',
-  },
-  ghost: {
-    backgroundColor: 'transparent',
-    borderWidth: 1,
-    borderColor: '#ebebeb',
-  },
-  danger: {
-    backgroundColor: '#eb5757',
-    shadowColor: '#eb5757',
-    shadowOpacity: 0.2,
-    shadowRadius: 12,
-    shadowOffset: { width: 0, height: 4 },
-    elevation: 3,
-  },
-  pill: {
-    backgroundColor: '#ffffff',
-    borderWidth: 1,
-    borderColor: '#ebebeb',
-    shadowColor: '#000',
-    shadowOpacity: 0.06,
-    shadowRadius: 8,
-    shadowOffset: { width: 0, height: 2 },
-    elevation: 2,
-    paddingVertical: 6,
-    paddingHorizontal: 12,
-  },
-  pressed: {
-    opacity: 0.82,
-    transform: [{ scale: 0.99 }],
-  },
-  disabled: {
-    opacity: 0.45,
-  },
-  textPrimary: {
-    color: '#ffffff',
-    fontSize: 14,
-    fontWeight: '600',
-    letterSpacing: -0.2,
-  },
-  textSecondary: {
-    color: '#000000',
-    fontSize: 14,
-    fontWeight: '500',
-    letterSpacing: -0.2,
-  },
-  textDanger: {
-    color: '#ffffff',
-    fontSize: 14,
-    fontWeight: '600',
-    letterSpacing: -0.2,
-  },
-  textPill: {
-    color: '#000000',
-    fontSize: 13,
-    fontWeight: '400',
-  },
-});

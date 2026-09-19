@@ -1,0 +1,210 @@
+import { StyleSheet } from 'react-native';
+import { colors, spacing } from '../../../theme';
+
+export const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: colors.canvasMist,
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.faintBorder,
+    backgroundColor: colors.pureWhite,
+  },
+  headerTextCol: {
+    gap: 2,
+  },
+  screenTitle: {
+    fontSize: 20,
+    fontWeight: '700',
+    color: colors.inkBlack,
+    letterSpacing: -1.0,
+  },
+  itemCountText: {
+    fontSize: 12,
+    color: colors.mutedGray,
+  },
+  searchContainer: {
+    paddingHorizontal: 16,
+    paddingTop: 12,
+    paddingBottom: 8,
+  },
+  searchBox: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: colors.pureWhite,
+    borderWidth: 1,
+    borderColor: 'rgba(0,0,0,0.1)',
+    borderRadius: 9999,
+    paddingHorizontal: 16,
+    height: 44,
+    gap: 8,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.06,
+    shadowRadius: 8,
+    elevation: 2,
+  },
+  searchInput: {
+    flex: 1,
+    color: colors.inkBlack,
+    fontSize: 14,
+    letterSpacing: -0.2,
+  },
+  filterBar: {
+    paddingBottom: spacing[10],
+    gap: spacing[8],
+  },
+  quickStatusScroll: {
+    paddingHorizontal: spacing[16],
+    gap: spacing[8],
+  },
+  statusPill: {
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 9999,
+    backgroundColor: colors.pureWhite,
+    borderWidth: 1,
+    borderColor: colors.faintBorder,
+  },
+  statusPillActive: {
+    backgroundColor: colors.shopViolet,
+    borderColor: colors.shopViolet,
+  },
+  statusPillText: {
+    fontSize: 12,
+    fontWeight: '500',
+    color: colors.slateInk,
+  },
+  statusPillTextActive: {
+    color: colors.pureWhite,
+    fontWeight: '600',
+  },
+  controlsRow: {
+    flexDirection: 'row',
+    paddingHorizontal: spacing[16],
+    gap: spacing[10],
+  },
+  controlBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    backgroundColor: colors.pureWhite,
+    borderRadius: 9999,
+    borderWidth: 1,
+    borderColor: colors.faintBorder,
+  },
+  controlBtnActive: {
+    borderColor: 'rgba(84,51,235,0.3)',
+    backgroundColor: 'rgba(84,51,235,0.05)',
+  },
+  controlBtnText: {
+    fontSize: 12,
+    fontWeight: '500',
+    color: colors.slateInk,
+  },
+  controlBtnTextActive: {
+    color: colors.shopViolet,
+    fontWeight: '600',
+  },
+  scrollContent: {
+    paddingHorizontal: spacing[16],
+    paddingTop: spacing[6],
+    paddingBottom: spacing[40],
+    gap: spacing[16],
+  },
+  emptyContainer: {
+    marginTop: spacing[40],
+  },
+  categorySection: {
+    gap: spacing[8],
+  },
+  categoryHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 6,
+    paddingHorizontal: 4,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.faintBorder,
+  },
+  categoryHeaderTitleRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing[8],
+  },
+  categoryHeaderTitle: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: colors.inkBlack,
+    letterSpacing: 0.6,
+  },
+  categoryCountBadge: {
+    backgroundColor: colors.canvasMist,
+    paddingHorizontal: 6,
+    paddingVertical: 1,
+    borderRadius: 9999,
+  },
+  categoryCountText: {
+    fontSize: 11,
+    fontWeight: '600',
+    color: colors.mutedGray,
+  },
+  categoryItemsContainer: {
+    gap: 2,
+    paddingTop: spacing[4],
+  },
+  paginationContainer: {
+    paddingTop: 12,
+    paddingBottom: 8,
+    borderTopWidth: 1,
+    borderTopColor: colors.faintBorder,
+    gap: 12,
+    alignItems: 'center',
+  },
+  paginationSummaryText: {
+    fontSize: 12,
+    color: colors.mutedGray,
+  },
+  paginationControls: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    width: '100%',
+    maxWidth: 340,
+  },
+  pageNavBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 9999,
+    backgroundColor: colors.pureWhite,
+    borderWidth: 1,
+    borderColor: colors.faintBorder,
+  },
+  pageNavBtnDisabled: {
+    opacity: 0.4,
+  },
+  pageNavBtnText: {
+    fontSize: 12,
+    fontWeight: '500',
+    color: colors.slateInk,
+  },
+  pageNavBtnTextDisabled: {
+    color: colors.warmFog,
+  },
+  pageIndicatorText: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: colors.inkBlack,
+  },
+});

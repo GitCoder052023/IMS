@@ -1,81 +1,51 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   View,
   Text,
-  StyleSheet,
   ScrollView,
   Pressable,
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
-import { useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Feather } from '@expo/vector-icons';
-import { useInventory } from '../../context/InventoryContext';
-import { validateItemInput } from '../../utils/inventoryCalculations';
 import {
-  DEFAULT_CATEGORIES,
-  DEFAULT_UNITS,
-} from '../../constants/inventoryDefaults';
-import { colors, radii, spacing } from '../../theme/tokens';
-import { Button } from '../../components/ui/Button';
-import { Input } from '../../components/ui/Input';
+  useItemForm,
+  CategoryChips,
+  UnitChips,
+} from '../../features/inventory';
+import { colors } from '../../theme';
+import { Button, Input } from '../../components/ui';
+import { styles } from '../../features/inventory/styles/ItemFormScreen.styles';
 
 export default function AddItemScreen() {
-  const router = useRouter();
   const insets = useSafeAreaInsets();
-  const { addItem } = useInventory();
-
-  const [name, setName] = useState('');
-  const [category, setCategory] = useState('');
-  const [customCategory, setCustomCategory] = useState('');
-  const [isCustomCategory, setIsCustomCategory] = useState(false);
-
-  const [quantity, setQuantity] = useState('');
-  const [minimumQuantity, setMinimumQuantity] = useState('');
-
-  const [unit, setUnit] = useState('pieces');
-  const [customUnit, setCustomUnit] = useState('');
-  const [isCustomUnit, setIsCustomUnit] = useState(false);
-
-  const [notes, setNotes] = useState('');
-  const [errors, setErrors] = useState<Record<string, string | undefined>>({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const effectiveCategory = isCustomCategory ? customCategory : category;
-  const effectiveUnit = isCustomUnit ? customUnit : unit;
-
-  const handleSubmit = async () => {
-    const validation = validateItemInput({
-      name,
-      category: effectiveCategory,
-      quantity,
-      minimumQuantity,
-      unit: effectiveUnit,
-    });
-
-    if (!validation.isValid) {
-      setErrors(validation.errors);
-      return;
-    }
-
-    try {
-      setIsSubmitting(true);
-      await addItem({
-        name,
-        category: effectiveCategory,
-        quantity: Number(quantity),
-        minimumQuantity: Number(minimumQuantity),
-        unit: effectiveUnit,
-        notes,
-      });
-      router.back();
-    } catch (err: any) {
-      setErrors({ form: err?.message || 'Failed to create equipment item' });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+  const {
+    name,
+    category,
+    customCategory,
+    isCustomCategory,
+    quantity,
+    minimumQuantity,
+    unit,
+    customUnit,
+    isCustomUnit,
+    notes,
+    errors,
+    isSubmitting,
+    handleNameChange,
+    handleCategorySelect,
+    handleCustomCategorySelect,
+    handleCustomCategoryChange,
+    handleQuantityChange,
+    handleMinQuantityChange,
+    handleUnitSelect,
+    handleCustomUnitSelect,
+    handleCustomUnitChange,
+    handleNotesChange,
+    handleCreate,
+    navigateBack,
+  } = useItemForm();
 
   return (
     <KeyboardAvoidingView
@@ -85,7 +55,7 @@ export default function AddItemScreen() {
       {/* Header */}
       <View style={styles.header}>
         <Pressable
-          onPress={() => router.back()}
+          onPress={navigateBack}
           hitSlop={8}
           style={styles.headerBtn}
         >
@@ -105,72 +75,21 @@ export default function AddItemScreen() {
           label="Equipment Name *"
           placeholder="e.g. 5 kg Dumbbells, Cricket Balls, Yoga Mats"
           value={name}
-          onChangeText={(text) => {
-            setName(text);
-            if (errors.name) setErrors((prev) => ({ ...prev, name: undefined }));
-          }}
+          onChangeText={handleNameChange}
           error={errors.name}
           autoFocus
         />
 
         {/* Category Selection */}
-        <View style={styles.fieldSection}>
-          <Text style={styles.sectionLabel}>Category *</Text>
-          <View style={styles.chipsContainer}>
-            {DEFAULT_CATEGORIES.map((cat) => {
-              const isSelected = !isCustomCategory && category === cat;
-              return (
-                <Pressable
-                  key={cat}
-                  onPress={() => {
-                    setIsCustomCategory(false);
-                    setCategory(cat);
-                    if (errors.category)
-                      setErrors((prev) => ({ ...prev, category: undefined }));
-                  }}
-                  style={[styles.chip, isSelected && styles.chipActive]}
-                >
-                  <Text
-                    style={[styles.chipText, isSelected && styles.chipTextActive]}
-                  >
-                    {cat}
-                  </Text>
-                </Pressable>
-              );
-            })}
-            <Pressable
-              onPress={() => {
-                setIsCustomCategory(true);
-              }}
-              style={[styles.chip, isCustomCategory && styles.chipActive]}
-            >
-              <Text
-                style={[
-                  styles.chipText,
-                  isCustomCategory && styles.chipTextActive,
-                ]}
-              >
-                + Custom
-              </Text>
-            </Pressable>
-          </View>
-
-          {isCustomCategory && (
-            <Input
-              placeholder="Enter custom category name"
-              value={customCategory}
-              onChangeText={(text) => {
-                setCustomCategory(text);
-                if (errors.category)
-                  setErrors((prev) => ({ ...prev, category: undefined }));
-              }}
-              containerStyle={styles.customInputContainer}
-            />
-          )}
-          {errors.category && (
-            <Text style={styles.errorText}>{errors.category}</Text>
-          )}
-        </View>
+        <CategoryChips
+          category={category}
+          customCategory={customCategory}
+          isCustomCategory={isCustomCategory}
+          onSelectDefault={handleCategorySelect}
+          onSelectCustom={handleCustomCategorySelect}
+          onChangeCustomText={handleCustomCategoryChange}
+          error={errors.category}
+        />
 
         {/* Quantities Row */}
         <View style={styles.row}>
@@ -180,11 +99,7 @@ export default function AddItemScreen() {
               placeholder="0"
               keyboardType="number-pad"
               value={quantity}
-              onChangeText={(text) => {
-                setQuantity(text.replace(/[^0-9]/g, ''));
-                if (errors.quantity)
-                  setErrors((prev) => ({ ...prev, quantity: undefined }));
-              }}
+              onChangeText={handleQuantityChange}
               error={errors.quantity}
               helperText="Total physical units owned"
             />
@@ -195,14 +110,7 @@ export default function AddItemScreen() {
               placeholder="0"
               keyboardType="number-pad"
               value={minimumQuantity}
-              onChangeText={(text) => {
-                setMinimumQuantity(text.replace(/[^0-9]/g, ''));
-                if (errors.minimumQuantity)
-                  setErrors((prev) => ({
-                    ...prev,
-                    minimumQuantity: undefined,
-                  }));
-              }}
+              onChangeText={handleMinQuantityChange}
               error={errors.minimumQuantity}
               helperText="Low stock alert threshold"
             />
@@ -210,68 +118,22 @@ export default function AddItemScreen() {
         </View>
 
         {/* Unit Selection */}
-        <View style={styles.fieldSection}>
-          <Text style={styles.sectionLabel}>Unit of Measure *</Text>
-          <View style={styles.chipsContainer}>
-            {DEFAULT_UNITS.map((u) => {
-              const isSelected = !isCustomUnit && unit === u;
-              return (
-                <Pressable
-                  key={u}
-                  onPress={() => {
-                    setIsCustomUnit(false);
-                    setUnit(u);
-                    if (errors.unit)
-                      setErrors((prev) => ({ ...prev, unit: undefined }));
-                  }}
-                  style={[styles.chip, isSelected && styles.chipActive]}
-                >
-                  <Text
-                    style={[styles.chipText, isSelected && styles.chipTextActive]}
-                  >
-                    {u}
-                  </Text>
-                </Pressable>
-              );
-            })}
-            <Pressable
-              onPress={() => {
-                setIsCustomUnit(true);
-              }}
-              style={[styles.chip, isCustomUnit && styles.chipActive]}
-            >
-              <Text
-                style={[
-                  styles.chipText,
-                  isCustomUnit && styles.chipTextActive,
-                ]}
-              >
-                + Custom
-              </Text>
-            </Pressable>
-          </View>
-
-          {isCustomUnit && (
-            <Input
-              placeholder="e.g. pairs, tubes, canisters"
-              value={customUnit}
-              onChangeText={(text) => {
-                setCustomUnit(text);
-                if (errors.unit)
-                  setErrors((prev) => ({ ...prev, unit: undefined }));
-              }}
-              containerStyle={styles.customInputContainer}
-            />
-          )}
-          {errors.unit && <Text style={styles.errorText}>{errors.unit}</Text>}
-        </View>
+        <UnitChips
+          unit={unit}
+          customUnit={customUnit}
+          isCustomUnit={isCustomUnit}
+          onSelectDefault={handleUnitSelect}
+          onSelectCustom={handleCustomUnitSelect}
+          onChangeCustomText={handleCustomUnitChange}
+          error={errors.unit}
+        />
 
         {/* Optional Notes */}
         <Input
           label="Optional Notes"
           placeholder="e.g. Rack location, model, supplier notes"
           value={notes}
-          onChangeText={setNotes}
+          onChangeText={handleNotesChange}
           multiline
           numberOfLines={3}
           style={styles.notesInput}
@@ -287,7 +149,7 @@ export default function AddItemScreen() {
         <Button
           title="Create Equipment Item"
           variant="primary"
-          onPress={handleSubmit}
+          onPress={handleCreate}
           loading={isSubmitting}
           style={styles.submitBtn}
         />
@@ -295,92 +157,3 @@ export default function AddItemScreen() {
     </KeyboardAvoidingView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.canvasMist,
-  },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.faintBorder,
-    backgroundColor: colors.pureWhite,
-  },
-  headerBtn: {
-    padding: 4,
-  },
-  headerTitle: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: colors.inkBlack,
-    letterSpacing: -0.5,
-  },
-  scrollContent: {
-    padding: 16,
-    paddingBottom: 48,
-  },
-  fieldSection: {
-    marginBottom: spacing[16],
-  },
-  sectionLabel: {
-    fontSize: 14,
-    fontWeight: '500',
-    color: colors.inkBlack,
-    marginBottom: 8,
-    letterSpacing: -0.2,
-  },
-  chipsContainer: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 8,
-  },
-  chip: {
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderRadius: 9999,
-    backgroundColor: colors.pureWhite,
-    borderWidth: 1,
-    borderColor: colors.faintBorder,
-  },
-  chipActive: {
-    backgroundColor: colors.shopViolet,
-    borderColor: colors.shopViolet,
-  },
-  chipText: {
-    fontSize: 12,
-    color: colors.slateInk,
-    fontWeight: '500',
-  },
-  chipTextActive: {
-    color: colors.pureWhite,
-    fontWeight: '600',
-  },
-  customInputContainer: {
-    marginTop: 8,
-    marginBottom: 0,
-  },
-  row: {
-    flexDirection: 'row',
-    gap: 12,
-  },
-  col: {
-    flex: 1,
-  },
-  notesInput: {
-    minHeight: 80,
-    textAlignVertical: 'top',
-  },
-  errorText: {
-    fontSize: 12,
-    color: colors.coralRed,
-    marginTop: 4,
-  },
-  submitBtn: {
-    marginTop: 8,
-  },
-});

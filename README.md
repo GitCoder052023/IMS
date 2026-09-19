@@ -97,21 +97,21 @@ Whether tracking gym weights, sports gear, protective equipment, or general tool
 IMS/
 ├── assets/                  # App icons, splash screens, and adaptive assets
 ├── src/
-│   ├── app/                 # Expo Router file-based screens
+│   ├── app/                 # Expo Router file-based screens & navigation routes
 │   │   ├── (tabs)/          # Main tab routes (Dashboard, Inventory, Settings)
 │   │   ├── item/            # Item detail, creation, and editing routes
-│   │   └── _layout.tsx      # Root provider and navigation stack
+│   │   └── _layout.tsx      # Root provider wrapper and navigation stack
 │   ├── components/
-│   │   ├── inventory/       # Domain-specific components (Cards, Timelines, Metrics)
-│   │   └── ui/              # Core design system primitives (Button, Card, Input, Modal)
-│   ├── constants/            # Defaults for categories, units, and configuration
-│   ├── context/              # InventoryContext state provider
-│   ├── storage/              # Local offline persistence handlers
-│   ├── theme/                # Design tokens (Colors, Radii, Shadows, Typography)
-│   ├── types/                # TypeScript interfaces & domain models
-│   └── utils/                # Inventory math, status calculations, and formatters
-├── app.json                  # Expo configuration manifest
-└── package.json              # Project dependencies and build scripts
+│   │   └── ui/              # Shared design system primitives & companion styles
+│   ├── features/            # Feature-oriented domain modules
+│   │   ├── dashboard/       # Dashboard metrics, health cards, aggregation & hooks
+│   │   ├── inventory/       # Inventory state, domain logic, storage repository & UI
+│   │   └── settings/        # App settings, storage status & data management workflows
+│   └── theme/               # Design tokens (Colors, Radii, Shadows, Spacing, Typography)
+├── app.json                 # Expo configuration manifest
+├── eas.json                 # EAS build profiles and configuration
+├── package.json             # Project dependencies and build scripts
+└── tsconfig.json            # TypeScript configuration
 ```
 
 ## Getting Started

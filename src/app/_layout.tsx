@@ -1,8 +1,8 @@
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { InventoryProvider } from '../context/InventoryContext';
-import { colors } from '../theme/tokens';
+import { InventoryProvider } from '../features/inventory';
+import { colors } from '../theme';
 
 export default function RootLayout() {
   return (
