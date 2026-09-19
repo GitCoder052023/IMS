@@ -219,3 +219,110 @@ export function validateRepairDamage(
   }
   return null;
 }
+
+export interface CategoryBreakdown {
+  category: string;
+  totalQuantity: number;
+  availableQuantity: number;
+  damagedQuantity: number;
+  itemCount: number;
+  percentageOfTotal: number;
+}
+
+/**
+ * Calculates stock breakdown by category from actual inventory data.
+ */
+export function calculateCategoryBreakdown(items: InventoryItem[]): CategoryBreakdown[] {
+  const categoryMap = new Map<
+    string,
+    { total: number; available: number; damaged: number; count: number }
+  >();
+  let overallTotal = 0;
+
+  for (const item of items) {
+    const available = getAvailableQuantity(item);
+    const existing = categoryMap.get(item.category) || {
+      total: 0,
+      available: 0,
+      damaged: 0,
+      count: 0,
+    };
+    categoryMap.set(item.category, {
+      total: existing.total + item.quantity,
+      available: existing.available + available,
+      damaged: existing.damaged + item.damagedQuantity,
+      count: existing.count + 1,
+    });
+    overallTotal += item.quantity;
+  }
+
+  const result: CategoryBreakdown[] = [];
+  for (const [category, data] of categoryMap.entries()) {
+    result.push({
+      category,
+      totalQuantity: data.total,
+      availableQuantity: data.available,
+      damagedQuantity: data.damaged,
+      itemCount: data.count,
+      percentageOfTotal: overallTotal > 0 ? Math.round((data.total / overallTotal) * 100) : 0,
+    });
+  }
+
+  return result.sort(
+    (a, b) => b.totalQuantity - a.totalQuantity || b.itemCount - a.itemCount
+  );
+}
+
+/**
+ * Formats activity timestamps into friendly relative strings (e.g. "Today · 09:18 AM").
+ */
+export function formatActivityTimestamp(isoString: string): string {
+  try {
+    const date = new Date(isoString);
+    const now = new Date();
+
+    const isToday =
+      date.getDate() === now.getDate() &&
+      date.getMonth() === now.getMonth() &&
+      date.getFullYear() === now.getFullYear();
+
+    const yesterday = new Date(now);
+    yesterday.setDate(now.getDate() - 1);
+    const isYesterday =
+      date.getDate() === yesterday.getDate() &&
+      date.getMonth() === yesterday.getMonth() &&
+      date.getFullYear() === yesterday.getFullYear();
+
+    const timeStr = date.toLocaleTimeString(undefined, {
+      hour: '2-digit',
+      minute: '2-digit',
+    });
+
+    if (isToday) {
+      return `Today · ${timeStr}`;
+    }
+    if (isYesterday) {
+      return `Yesterday · ${timeStr}`;
+    }
+
+    const dateStr = date.toLocaleDateString(undefined, {
+      month: 'short',
+      day: 'numeric',
+    });
+    return `${dateStr} · ${timeStr}`;
+  } catch {
+    return isoString;
+  }
+}
+
+/**
+ * Formats current date for the dashboard header (e.g. "Saturday, 19 September").
+ */
+export function formatDashboardDate(date: Date = new Date()): string {
+  return date.toLocaleDateString(undefined, {
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long',
+  });
+}
+

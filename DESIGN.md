@@ -1,69 +1,54 @@
-# Linear — Style Reference
-> midnight precision instrument
+# Shop — Style Reference
+> Floating shopping constellation on white marble
 
-**Theme:** dark
+**Theme:** light
 
-Linear's design system is a midnight command center built on near-black surfaces (#08090a) with paper-white type and one electric acid-lime accent (#e4f222) that functions as a functional flashlight — small, high-contrast, and used sparingly to signal action. The interface treats darkness as a substrate rather than a theme: text is crisp white at tight tracking (-0.022em), weights sit in a low 400–510 band rather than bold, and borders are hairline-thin (0.5px) to let geometry do the work that shadows usually would. Components feel precision-machined — 6px and 12px radii, compact 8–12px paddings, and almost no decorative ornament — letting the product UI (issue cards, kanban boards, AI agent panels) be the only visual texture in an otherwise quiet system.
-
-
+Shop runs on a white-canvas discovery model where products float as large, heavily-rounded image cards instead of grid-locked thumbnails. The entire interface is pillow-soft: 20–28px radii everywhere, pill-shaped controls, a compact 16px GT Standard body with tight negative tracking that pulls text into crisp shapes. A single vivid violet (#5433eb) is the system's only saturated accent — it appears in the wordmark, the circular search submit, and as a tinted shadow on that same button. The rest of the palette is warm-neutral: white surfaces, a faint cool-gray canvas, hairline borders, and near-black text. Density stays compact with 12px gaps, but the hero and category bands breathe through generous 64–80px vertical rhythm, making commerce feel browsable rather than catalog-like.
 
 ## Tokens — Colors
 
 | Name | Value | Token | Role |
 |------|-------|-------|------|
-| Void | `#08090a` | `--color-void` | Page canvas, full-bleed backgrounds — the default everything sits on |
-| Carbon | `#0f1011` | `--color-carbon` | Card surfaces, nav bars — one step above canvas for contained content |
-| Obsidian | `#161718` | `--color-obsidian` | Elevated surfaces, deeper card panels |
-| Graphite | `#23252a` | `--color-graphite` | Subtle borders, dividers, ghost button outlines — low-contrast structural edges |
-| Smoke | `#383b3f` | `--color-smoke` | Hairline borders at higher contrast than graphite — section separators |
-| Ash | `#62666d` | `--color-ash` | Muted body text, inactive icons, secondary metadata |
-| Fog | `#8a8f98` | `--color-fog` | Tertiary text, placeholder copy, icon fills |
-| Mist | `#d0d6e0` | `--color-mist` | Secondary headings, button text on dark surfaces |
-| Bone | `#e5e5e6` | `--color-bone` | Near-white surface fills, high-contrast button text |
-| Paper | `#ffffff` | `--color-paper` | Primary headings, hero type, max-contrast emphasis text |
-| Acid Lime | `#e4f222` | `--color-acid-lime` | Primary action buttons, active nav indicators — electric accent that breaks the monochrome system |
-| Pulse Green | `#27a644` | `--color-pulse-green` | Green outline accent for tags, dividers, and focused UI edges. Use as a supporting accent, not as a status color |
-| Coral Red | `#eb5757` | `--color-coral-red` | Red wash for highlight backgrounds, decorative bands, and soft emphasis behind content. Use as a supporting accent, not as a status color |
-| Signal Teal | `#02b8cc` | `--color-signal-teal` | Decorative accent, informational icon fills |
-| Iris Violet | `#6366f1` | `--color-iris-violet` | Tag/badge fills — soft chromatic punctuation on tags and labels |
-| Lavender | `#8b5cf6` | `--color-lavender` | Secondary tag fills, category indicators |
+| Canvas Mist | `#f2f4f5` | `--color-canvas-mist` | Page background and secondary surface wash behind elevated cards |
+| Pure White | `#ffffff` | `--color-pure-white` | Primary surface for cards, input fields, floating brand spotlights, and pill buttons |
+| Ink Black | `#000000` | `--color-ink-black` | Primary text, headings, icons, nav symbols, and dark mode product cards |
+| Faint Border | `#ebebeb` | `--color-faint-border` | Hairline dividers on cards, input outlines, and pill button borders |
+| Muted Gray | `#787574` | `--color-muted-gray` | Secondary text, navigation labels, icon strokes in idle state |
+| Cool Stone | `#cccccc` | `--color-cool-stone` | Placeholder fills, disabled states, and inactive icon backgrounds |
+| Warm Fog | `#acb0aa` | `--color-warm-fog` | Subtle surface tints for secondary product cards and section backgrounds |
+| Shop Violet | `#5433eb` | `--color-shop-violet` | Search submit button, wordmark dot, brand logo — the single accent that makes action and identity pop against the white canvas |
+| Violet Wash | `#c0b5f3` | `--color-violet-wash` | Translucent halo behind the violet submit button, extending its glow without changing hue |
+| Slate Ink | `#332f2d` | `--color-slate-ink` | Dark product card surfaces and deep-tone overlay text |
+| Ash Veil | `#665a54` | `--color-ash-veil` | Warm desaturated gray used in product imagery backdrops, not an active UI token |
 
 ## Tokens — Typography
 
-### Inter Variable — Primary UI and heading typeface — used across nav, body, headings, buttons, cards · `--font-inter-variable`
-- **Substitute:** Inter (variable), or system-ui as fallback
-- **Weights:** 300, 400, 510, 590
-- **Sizes:** 10, 11, 12, 13, 14, 15, 16, 17, 20, 24, 32, 48, 64, 72
-- **Line height:** 1.0–2.75
-- **Letter spacing:** -0.022em at 48–72px, -0.012em at 20–32px, -0.011em at 15px, -0.010em at 13–16px
-- **OpenType features:** `"cv01" on, "ss03" on, "zero" on`
-- **Role:** Primary UI and heading typeface — used across nav, body, headings, buttons, cards
-
-### Berkeley Mono — Code-adjacent UI text — issue IDs (ENG-2703), keyboard shortcuts, monospaced metadata · `--font-berkeley-mono`
-- **Substitute:** JetBrains Mono, IBM Plex Mono, or ui-monospace
+### GT Standard — Primary typeface at all sizes — body and headings alike. GTStandard-MRegular at 16px/-0.031em is the workhorse for body, buttons, and labels. GTStandard-MSemibold at 20px/-0.05em powers the few display-scale headings; GTStandard-MMedium at 11–12px handles micro-labels. Every weight renders at 400 optical weight — the font family carries its hierarchy through subtle grade shifts and tight negative tracking, not bold contrast. This is the signature: Shop doesn't shout with bold, it shapes text with tracking. · `--font-gt-standard`
+- **Substitute:** Inter, system-ui, -apple-system
 - **Weights:** 400
-- **Sizes:** 12, 14
-- **Line height:** 1.40–1.71
-- **Letter spacing:** -0.013em
-- **OpenType features:** `"cv01" on, "ss03" on`
-- **Role:** Code-adjacent UI text — issue IDs (ENG-2703), keyboard shortcuts, monospaced metadata
+- **Sizes:** 9px, 11px, 12px, 14px, 16px, 20px
+- **Line height:** 1.10–1.38
+- **Letter spacing:** -0.05em at 20px, -0.031em at 16px, -0.014em at 14px, -0.017em at 12px, -0.058em at 9px
+- **Role:** Primary typeface at all sizes — body and headings alike. GTStandard-MRegular at 16px/-0.031em is the workhorse for body, buttons, and labels. GTStandard-MSemibold at 20px/-0.05em powers the few display-scale headings; GTStandard-MMedium at 11–12px handles micro-labels. Every weight renders at 400 optical weight — the font family carries its hierarchy through subtle grade shifts and tight negative tracking, not bold contrast. This is the signature: Shop doesn't shout with bold, it shapes text with tracking.
+
+### Shopify Sans — Reserved for system-level messaging like the app download banner and cookie consent copy · `--font-shopify-sans`
+- **Substitute:** Inter
+- **Weights:** 400, 700
+- **Sizes:** 10px, 14px
+- **Line height:** 1.20–1.71
+- **Letter spacing:** -0.0230em
+- **Role:** Reserved for system-level messaging like the app download banner and cookie consent copy
 
 ### Type Scale
 
 | Role | Size | Line Height | Letter Spacing | Token |
 |------|------|-------------|----------------|-------|
-| caption | 13px | 1.2 | — | `--text-caption` |
-| body-sm | 15px | 1.6 | -0.165px | `--text-body-sm` |
-| body-lg | 20px | 1.33 | -0.24px | `--text-body-lg` |
-| subheading | 24px | 1.33 | -0.288px | `--text-subheading` |
-| heading-sm | 32px | 1.13 | -0.704px | `--text-heading-sm` |
-| heading | 48px | 1 | -1.056px | `--text-heading` |
-| heading-lg | 64px | 1 | -1.408px | `--text-heading-lg` |
-| display | 72px | 1 | -1.584px | `--text-display` |
+| caption | 11px | 1.33 | — | `--text-caption` |
+| body-sm | 12px | 1.33 | — | `--text-body-sm` |
+| body | 14px | 1.33 | — | `--text-body` |
+| body-lg | 16px | 1.33 | — | `--text-body-lg` |
 
 ## Tokens — Spacing & Shapes
-
-**Base unit:** 4px
 
 **Density:** compact
 
@@ -72,201 +57,197 @@ Linear's design system is a midnight command center built on near-black surfaces
 | Name | Value | Token |
 |------|-------|-------|
 | 4 | 4px | `--spacing-4` |
+| 6 | 6px | `--spacing-6` |
 | 8 | 8px | `--spacing-8` |
+| 10 | 10px | `--spacing-10` |
+| 11 | 11px | `--spacing-11` |
 | 12 | 12px | `--spacing-12` |
 | 16 | 16px | `--spacing-16` |
 | 20 | 20px | `--spacing-20` |
 | 24 | 24px | `--spacing-24` |
-| 28 | 28px | `--spacing-28` |
 | 32 | 32px | `--spacing-32` |
-| 36 | 36px | `--spacing-36` |
+| 38 | 38px | `--spacing-38` |
 | 40 | 40px | `--spacing-40` |
 | 48 | 48px | `--spacing-48` |
-| 56 | 56px | `--spacing-56` |
 | 64 | 64px | `--spacing-64` |
-| 80 | 80px | `--spacing-80` |
-| 96 | 96px | `--spacing-96` |
-| 128 | 128px | `--spacing-128` |
 
 ### Border Radius
 
 | Element | Value |
 |---------|-------|
-| cards | 12px |
-| pills | 9999px |
-| small | 2px |
-| badges | 4px |
-| inputs | 6px |
-| buttons | 6px |
+| cards | 28px |
+| chips | 9999px |
+| pills | 20px |
+| inputs | 9999px |
+| search | 9999px |
+| buttons | 9999px |
 
 ### Shadows
 
 | Name | Value | Token |
 |------|-------|-------|
-| sm | `rgba(0, 0, 0, 0.4) 0px 2px 4px 0px` | `--shadow-sm` |
-| md | `rgba(0, 0, 0, 0.2) 0px 0px 12px 0px inset` | `--shadow-md` |
-| subtle | `rgb(35, 37, 42) 0px 0px 0px 1px inset` | `--shadow-subtle` |
-| subtle-2 | `rgba(0, 0, 0, 0.2) 0px 0px 0px 1px` | `--shadow-subtle-2` |
-| subtle-3 | `rgba(0, 0, 0, 0.01) 0px 5px 2px 0px, rgba(0, 0, 0, 0.04) ...` | `--shadow-subtle-3` |
-| xl | `rgba(8, 9, 10, 0.6) 0px 4px 32px 0px` | `--shadow-xl` |
-| subtle-4 | `rgba(255, 255, 255, 0.03) 0px 0px 0px 1px inset, rgba(255...` | `--shadow-subtle-4` |
-| subtle-5 | `rgba(0, 0, 0, 0.1) 0px 0px 0px 2px` | `--shadow-subtle-5` |
+| sm | `rgba(0, 0, 0, 0.06) 0px 2px 8px 0px` | `--shadow-sm` |
+| sm-2 | `rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.1) 0...` | `--shadow-sm-2` |
+| lg | `rgba(0, 0, 0, 0.12) 0px 4px 24px 0px` | `--shadow-lg` |
+| lg-2 | `rgba(69, 36, 219, 0.34) 0px 4px 24px 0px` | `--shadow-lg-2` |
 
 ### Layout
 
 - **Page max-width:** 1200px
-- **Section gap:** 96px
-- **Card padding:** 24px
-- **Element gap:** 8px
+- **Section gap:** 64px
+- **Card padding:** 0px
+- **Element gap:** 12px
 
 ## Components
 
-### Primary Action Button (Acid Lime)
-**Role:** High-emphasis CTA — the one chromatic button in the system
+### Hero Floating Product Card
+**Role:** Hero showcase tile hovering above the wordmark
 
-Background #e4f222, text #08090a, border-radius 6px, padding 10px 16px, Inter 14px / weight 510, letter-spacing -0.011em. Sits as the sole filled chromatic element — every other button on the site is neutral.
+White surface, 28px radius, 2-layer soft shadow (0 4px 6px -1px rgba(0,0,0,0.1) + 0 2px 4px -2px rgba(0,0,0,0.1)). Contains a 1:1 product image with its own 20px radius, brand name in 14px semibold ink-black beneath, and a 5-star rating row in 9px caption. Zero internal padding on the card; the image bleeds to the rounded edge.
 
-### Nav Text Button
-**Role:** Top navigation items
+### Brand Spotlight Card
+**Role:** Elevated product card promoting a featured merchant
 
-Transparent background, text #d0d6e0, padding 8px 12px, Inter 13px / weight 400. No border, no fill — pure typographic nav with underline on hover.
+White surface, 28px radius, same dual-layer soft shadow. A 1:1 product image fills the upper area with 20px inner radius. Below: brand name in 14px semibold, star rating and review count in 9px caption. No visible border; the shadow alone separates it from the canvas.
 
-### Pill Button
-**Role:** Tag chips, status pills, compact action triggers
+### Search Input with Violet Submit
+**Role:** Primary navigation and discovery control
 
-Background rgba(255,255,255,0.05), text #d0d6e0, border-radius 9999px, padding 4px 12px, Inter 12–13px / weight 400.
+Pill-shaped container at 9999px radius, white fill, 1px ink-black border at 0.1 opacity, 4px vertical / 20px left horizontal padding. Right side reserves 48px for a circular violet (#5433eb) submit button with a white arrow glyph. The violet button carries a tinted shadow: 0 4px 24px rgba(69,36,219,0.34). Placeholder text in 16px regular at muted gray.
 
-### Ghost / Outline Button
-**Role:** Secondary actions, less prominent CTAs
+### Category Pill
+**Role:** Top-level category quick-access chip
 
-Transparent background, border 1px #23252a, text #d0d6e0, border-radius 6px, padding 8px 12px, Inter 13px / weight 400.
+Pill at 9999px radius, white fill, 1px faint (#ebebeb) border, subtle elevation shadow (0 2px 8px rgba(0,0,0,0.06)). Left side: 16px circular category icon in its native brand color. Right: 16px GTStandard-MRegular label in ink-black. Horizontal padding 6px, vertical 6px.
 
-### Sign-up Button (Rounded Pill, Neutral)
-**Role:** High-emphasis nav CTA
+### Product Image Tile
+**Role:** Category-grid product type card with overlay label
 
-Background #ffffff, text #08090a, border-radius 9999px, padding 8px 16px, Inter 13px / weight 510. White pill against the dark nav bar — the second highest-contrast element after the acid-lime CTA.
+Tall or wide image fills the entire card with zero internal padding. The card itself has 0px radius in the grid context (image defines the shape). A semi-transparent white label box sits at the bottom-left with the product type in 14px semibold, 12px internal padding, and 12px radius on the label chip.
 
-### Card (Product Screenshot Frame)
-**Role:** Large showcase surface for product UI screenshots
+### Category Section Header
+**Role:** Section title with chevron affordance
 
-Background #0f1011, border-radius 12px, inset shadow rgb(35,37,42) 0 0 0 1px, padding 24px. Hairline inner border defines the card edge — no outer shadow, no glow.
+Left-aligned 20px GTStandard-MSemibold at -1.0px tracking in ink-black, followed by a 16px ink-black chevron. No background, no border. Sits above a 2-column or 4-column product grid with 24px bottom margin before the grid.
 
-### Card (Subtle)
-**Role:** Small content cards, nested panels
+### Sidebar Nav Rail
+**Role:** Persistent left-edge navigation
 
-Background rgba(255,255,255,0.02), border-radius 6px, shadow rgba(0,0,0,0.4) 0 2px 4px, padding 8px. Almost invisible — the card barely separates from the canvas.
+Narrow vertical column (~64px wide), white background, no border. Each nav item is a 24px ink-black icon centered in a 48px square tappable area. Active state fills the icon container with #f2f4f5 at 20px radius. Profile avatar at the bottom is a 32px circle with a 1px #ebebeb ring.
 
-### Text Input
-**Role:** Form fields, search inputs
+### App Download Banner
+**Role:** Top-of-page cross-platform install prompt
 
-Background rgba(255,255,255,0.02), border 1px rgba(255,255,255,0.08), text #d0d6e0, border-radius 6px, padding 12px 14px, Inter 14px / weight 400. Focus ring: border brightens to #d0d6e0.
+Full-width dark band (#000000) at 48px height, 1px radius, white centered text. Contains a 24px rounded app icon, a 14px Shopify Sans link label reading 'Download Shop app', subtext 'Available on iOS & Android' at 10px, and a white right-pointing arrow. Sits flush against the top edge with zero internal margins beyond 12px horizontal.
 
-### Badge / Status Tag
-**Role:** Issue status, category labels, inline metadata
+### Cookie Consent Button
+**Role:** Cookie banner action button
 
-Background rgba(255,255,255,0.05), text #8a8f98, border-radius 4px, padding 0px 6px, Inter 12px / weight 400. Color-coded variants use Pulse Green, Coral Red, Iris Violet, or Lavender fills.
+Pill at 9999px radius, white fill, 1px #ebebeb border. Black 12px semibold label centered. Padding 6px vertical, 16px horizontal. Shadow: 0 2px 8px rgba(0,0,0,0.06) for subtle lift on the white canvas.
 
-### Logo Mark
-**Role:** Brand identification in nav
+### Category Carousel Arrow
+**Role:** Carousel navigation control within product grids
 
-Linear wordmark + geometric glyph, Inter 16px / weight 510, color #ffffff. Glyph rendered as inline SVG in white.
+Circular 32px white button with 0 4px 24px rgba(0,0,0,0.12) shadow. Contains a 16px ink-black right-chevron. Sits at the right edge of any horizontal product rail, vertically centered.
 
-### Logo Bar (Customer Strip)
-**Role:** Social proof — customer logos in a horizontal row
+### Product Type Hero Image
+**Role:** Full-bleed product image with brand name overlay
 
-Neutral grey logos (Vercel, Cursor, Oscar, OpenAI, Coinbase, Cash App, Boom, Ramp) at #8a8f98–#d0d6e0, evenly spaced with 48–64px gaps, no card backgrounds.
+Large rounded image (28px radius) filling roughly 60% of a category row. Brand name rendered in large white display type directly on the image at the top-left, followed by a star rating and review count in 14px white. No card chrome — the image IS the card.
 
-### Hero Gradient Floor
-**Role:** Atmospheric base under the product screenshot
+### Mini Product Thumbnail Strip
+**Role:** Horizontal swatch row within a product card
 
-Linear gradient from rgb(8,9,10) at 10% to rgb(208,214,224) at 100% — a subtle light wash that grounds the floating product UI against the void.
+Row of 3–4 small product images at ~48px square with 12px radius each, separated by 2px gaps. Sits at the bottom of a brand card as a quick-browse affordance. No labels, no borders — just the cropped product images.
+
+### Cookie Modal Link
+**Role:** Inline text link in cookie consent copy
+
+14px GTStandard-MRegular ink-black, underlined. No background, no border. Sits inline within body copy at standard line height.
 
 ## Do's and Don'ts
 
 ### Do
-- Use Inter Variable with font-feature-settings 'cv01' on, 'ss03' on, 'zero' on — these alternate glyphs define Linear's typographic identity
-- Use #e4f222 exclusively for the single primary action per view — never for decoration, never for secondary buttons
-- Set body text at 16px Inter weight 400 with line-height 1.5 — larger reading sizes (17px+ at weight 590) are reserved for body emphasis blocks
-- Use letter-spacing -0.022em at 48px and above — tight tracking is non-negotiable for display type
-- Set card radius to 12px, button radius to 6px, pill radius to 9999px — three radii is the entire radius vocabulary
-- Use 0.5px hairline borders (#23252a or #383b3f) instead of shadows for surface separation — Linear's elevation comes from borders and subtle inner shadows
-- Keep section gaps at 96px and element gaps at 8px — the 8/12/24/96 spacing ladder is the rhythm
+- Use 28px radius for all product cards and 9999px for all pills, inputs, and category chips — the generous rounding is the brand signature
+- Set the violet (#5433eb) exclusively on the search submit button and the wordmark dot — it is the only saturated color in the system and must stay singular
+- Type body text at 16px GTStandard-MRegular with -0.5px tracking, never smaller for primary content — 12px is the floor for secondary labels
+- Pair every elevated card with the dual-layer soft shadow (0 4px 6px -1px + 0 2px 4px -2px at 10% black) — never use a single hard shadow
+- Separate layers with shadow alone on white surfaces; skip borders on cards and rely on the canvas-to-card color shift
+- Maintain 64–80px vertical breathing room between major content sections to preserve the airy, browseable feel
+- Tint the search button's shadow with the brand violet (rgba(69,36,219,0.34)) so the accent color is reinforced in the elevation itself
 
 ### Don't
-- Do not use bold weights (700+) — Linear's type scale caps at weight 590, the system deliberately avoids heavy display weights
-- Do not use decorative gradients on buttons, cards, or text — gradients are reserved for the hero atmospheric floor only
-- Do not introduce additional chromatic accent colors as actions — the acid-lime button is the only chromatic UI element
-- Do not use large radii (16px+) on cards or panels — 12px is the max card radius in this system
-- Do not use shadows to separate cards from the canvas — use hairline borders (#23252a) and inner inset shadows instead
-- Do not use chromatic text colors for body copy — all body text sits in the #d0d6e0 / #8a8f98 / #62666d grey scale
-- Do not use Berkeley Mono for headings or marketing copy — it is reserved for issue IDs, keyboard shortcuts, and technical metadata
+- Do not add a second saturated accent color — the system is monochrome with one violet, introducing a second will flatten its impact
+- Do not use sharp corners on cards, buttons, or inputs — 0px radius is reserved for image edges only
+- Do not use bold (700+) weights — the GTStandard family carries hierarchy through grade and tracking, not weight contrast
+- Do not add visible borders to elevated cards — the shadow and white surface against the faint canvas do the separation work
+- Do not use colored backgrounds for UI containers — the product photography provides all color in the experience
+- Do not break the 9999px pill convention for any control that sits inline with text (search, category chips, cookie buttons)
+- Do not set body text below 12px — 9px is reserved exclusively for review counts and brand metadata in tight cards
+- Do not add gradients, illustrations, or decorative shapes — the visual language is product photography on white with soft shadows
 
 ## Surfaces
 
 | Level | Name | Value | Purpose |
 |-------|------|-------|---------|
-| 0 | Void | `#08090a` | Page canvas — the default full-bleed background |
-| 1 | Carbon | `#0f1011` | Card surfaces, product screenshot frames, nav containers |
-| 2 | Obsidian | `#161718` | Elevated panels, deeper nested surfaces |
-| 3 | Slate | `#23252a` | Interactive surface tint, ghost button fills, border-adjacent backgrounds |
+| 0 | Canvas | `#f2f4f5` | Page background — only visible at page edges and behind the sidebar rail |
+| 1 | Surface | `#ffffff` | Main content surface for cards, inputs, pills, the sidebar, and the search bar |
+| 2 | Elevated Card | `#ffffff` | Hero floating product cards and brand spotlights — same white but lifted by dual-layer soft shadow |
+| 3 | Accent Product Image | `#000000` | Dark product imagery that reads as a 'dark mode' surface within the light canvas, holding white overlay text |
 
 ## Elevation
 
-Elevation in Linear's system is achieved almost entirely through hairline borders (0.5px #23252a or 1px inset #23252a) and subtle dark drop shadows (rgba(0,0,0,0.4) 0 2px 4px) rather than layered shadow stacks. The visual hierarchy comes from the surface-level progression (#08090a → #0f1011 → #161718 → #23252a) and border definition, not from ambient shadow. The acid-lime CTA button uses an inset shadow stack (0px 5px 2px / 0px 3px 2px / 0px 1px 1px) — the only place in the system where a real shadow is applied to a chrome element.
+- **Hero Product Card:** `rgba(0,0,0,0.1) 0px 4px 6px -1px, rgba(0,0,0,0.1) 0px 2px 4px -2px`
+- **Search Submit Button:** `rgba(69,36,219,0.34) 0px 4px 24px 0px`
+- **Category Pill:** `rgba(0,0,0,0.06) 0px 2px 8px 0px`
+- **Carousel Arrow:** `rgba(0,0,0,0.12) 0px 4px 24px 0px`
+- **Cookie Button:** `rgba(0,0,0,0.06) 0px 2px 8px 0px`
 
 ## Imagery
 
-Linear's visual language is product-screenshot-first: the hero and section illustrations are real Linear app UI captured at full fidelity — issue cards, kanban boards, AI agent panels, command palettes — placed inside framed card containers with hairline borders. No stock photography, no lifestyle imagery, no abstract illustration. Logos appear as a customer strip in neutral grey (#8a8f98) at uniform size. Icons are minimal line-art SVGs in single-color grey scale. The hero screenshot floats on a subtle linear gradient (dark-to-light) that creates atmospheric depth without literal scenery. Every visual element is a functional artifact of the product itself.
+Photography is the dominant visual: full-bleed product photography on white, 1:1 crops, and lifestyle imagery with warm earth-tone palettes (tans, terracotta, sage, ivory). Product images carry their own color — the UI stays achromatic so product hues become the visual variety. Brand logos appear as overlay type on dark or light hero images rather than separate badges. The hero composition arranges product cards as a floating, slightly overlapping constellation above the wordmark. Icons are minimal and mono (ink-black outlined strokes), except for category pill icons which use a single brand color each. No illustrations, no 3D, no gradients on product imagery.
 
 ## Layout
 
-Layout is max-width contained at ~1200px, centered, with full-bleed dark backgrounds extending to viewport edges. The hero is a left-aligned oversized headline (64–72px) paired with a right-aligned link CTA, followed by a large product screenshot that bleeds beyond the max-width slightly. Section rhythm alternates between text-left/image-right 2-column compositions and full-width product showcase bands, separated by 96px vertical gaps. The customer logo strip is a single horizontal row. The page never uses 3-column card grids or masonry — information density stays low, with most sections using generous whitespace and a single focal point per screen. Navigation is a fixed top bar with left-aligned logo and right-aligned links, no sidebar, no mega-menu.
+Max-width 1200px centered on a faint #f2f4f5 canvas, with a persistent 64px-wide left sidebar rail of icon-only navigation. The hero is a full-width band where product cards float above a centered violet 'shop' wordmark, with the pill search bar directly below. Category pills sit in a single centered row beneath the search. Content sections (Women, Men, Beauty, Home, Baby & Toddler) follow as labeled bands, each containing a 4-column card grid of product image tiles or a 2-column hero-and-grid composition. Vertical rhythm is generous: 64–80px between major sections. The footer is a dark band at the page bottom with columnar link groups. Right-side carousel arrows on horizontal product rails indicate scrollable content without pagination dots.
 
 ## Agent Prompt Guide
 
-**Quick Color Reference:**
-- text (primary heading): #ffffff
-- text (body): #d0d6e0
-- text (muted): #8a8f98
-- background (canvas): #08090a
-- background (card): #0f1011
-- border (hairline): #23252a
-- accent (CTA): #e4f222
-- primary action: #e4f222 (filled action)
+Quick Color Reference:
+- Background: #f2f4f5 (canvas), #ffffff (surface)
+- Text: #000000 (primary), #787574 (secondary)
+- Border: #ebebeb (hairline)
+- Accent: #5433eb (Shop violet — wordmark + search submit)
+- Shadow tint: rgba(69,36,219,0.34) for the violet button only
+- primary action: #5433eb (filled action)
 
-**3-5 Example Component Prompts:**
+Example Component Prompts:
 
-1. **Hero headline block:** Full-bleed #08090a canvas. Headline at 64px Inter Variable weight 510, color #ffffff, letter-spacing -0.022em, line-height 1.0. Subtext at 16px Inter weight 400, color #8a8f98. No button — secondary link text in #d0d6e0 with arrow glyph.
+1. Create the hero search bar: 9999px radius pill, #ffffff fill, 1px border in rgba(5,41,77,0.1). Placeholder 'What are you shopping for today?' in 16px GTStandard-MRegular at #787574. Right-aligned circular submit button in #5433eb with a white right-arrow glyph, 48px diameter, shadow 0 4px 24px rgba(69,36,219,0.34). The input padding is 4px vertical, 20px left, reserving 48px right for the submit.
 
-2. **Product screenshot card:** Background #0f1011, border-radius 12px, inset border 1px #23252a via box-shadow, padding 24px. Contains a simulated app UI at full opacity over the card surface. No outer drop shadow.
+2. Create a floating brand spotlight card: 28px radius, #ffffff fill, dual shadow (rgba(0,0,0,0.1) 0 4px 6px -1px + rgba(0,0,0,0.1) 0 2px 4px -2px). Top half: 1:1 product image at 20px inner radius filling to the card edges. Below: brand name in 14px GTStandard-MSemibold at #000000 with -0.2px tracking, followed by a 9px star-rating row at -0.5px tracking. No card padding, no border.
 
-3. **Acid-lime primary action button:** Background #e4f222, text #08090a, border-radius 6px, padding 10px 16px, Inter 14px weight 510, letter-spacing -0.011em. Only one per view.
+3. Create a category pill chip: 9999px radius, #ffffff fill, 1px #ebebeb border, shadow rgba(0,0,0,0.06) 0 2px 8px. Left: 16px circular category icon in its native color. Right: 16px GTStandard-MRegular label in #000000 with -0.5px tracking. Padding 6px vertical, 6px left, 16px right.
 
-4. **Nav top bar:** Background #08090a (transparent over canvas), padding 16px horizontal, max-width 1200px centered. Logo wordmark #ffffff at 16px weight 510 left-aligned. Nav links #d0d6e0 at 13px weight 400, 8px gaps. Right-aligned white pill sign-up button: bg #ffffff, text #08090a, border-radius 9999px, padding 8px 16px.
+4. Create a category section header: 20px GTStandard-MSemibold at -1.0px tracking in #000000, followed by a 16px #000000 right-chevron, left-aligned. 24px bottom margin before the 4-column product grid beneath.
 
-5. **Status badge row:** Horizontal flex, 8px gap. Each badge: background rgba(255,255,255,0.05), text #8a8f98, border-radius 4px, padding 0px 6px, Inter 12px weight 400. Color-coded variants: #27a644 for success, #eb5757 for error, #6366f1 for tags.
+5. Create the left sidebar nav: 64px-wide vertical rail, #ffffff fill, no border. Each item is a 24px #000000 icon centered in a 48px tap target. Active state fills a 20px-radius background of #f2f4f5 behind the icon. Profile avatar at bottom: 32px circle with 1px #ebebeb ring.
 
-## Type Scale Detail
+## Typography Hierarchy Rules
 
-Display: 72px / 510 / lh 1.0 / ls -0.022em
-Hero: 64px / 510 / lh 1.0 / ls -0.022em
-Section heading: 48px / 510 / lh 1.0 / ls -0.022em
-Subheading: 32px / 400 / lh 1.13 / ls -0.022em
-Heading: 24px / 400 / lh 1.33 / ls -0.012em
-Body emphasis: 20px / 590 / lh 1.33 / ls -0.012em
-Body large: 17px / 590 / lh 1.6 / ls default
-Body: 16px / 400 / lh 1.5 / ls default
-Body small: 15px / 400 / lh 1.6 / ls -0.011em
-Caption: 13px / 400 / lh 1.2 / ls default
-Label: 12px / 400 / lh 1.4 / ls default
-Micro: 10px / 510 / lh 1.5 / ls default
+The GT Standard family carries its entire hierarchy through three grades (Regular, Medium, Semibold) and negative tracking — never through weight contrast alone. Display and heading sizes use aggressive tracking tightening (-1.0px at 20px, -0.5px at 16px), while micro-labels relax to -0.2px. This creates a visual compression effect: big text pulls tight, small text breathes. Always pair size with the correct family grade: 16px body is Regular, 14px subheadings are Semibold, 12px meta is Medium. Never mix grades within a single text run — a label and its value must use the same family grade for visual coherence.
+
+## Product Card Composition
+
+Product cards are image-first: the image defines the card's visual identity, and type is a supporting label beneath or overlaid on the image. White product cards stack the image on top with type below in a 12–16px gap. Dark product cards reverse this — brand name in large display type overlays the image at the top-left in white. The card radius (28px) is always larger than the inner image radius (20px) by ~8px, creating a subtle white frame effect even on white-background product images. Never crop a product image to the card's exact rounded shape — the inner 20px radius provides a visible white border that separates the product from the card edge.
 
 ## Similar Brands
 
-- **Vercel** — Same dark-canvas-first approach with hairline borders, tight Inter typography, and product-screenshot-as-hero layout — both treat the product UI as the visual content rather than illustration
-- **Cursor** — Identical midnight dark mode with acid-lime accent CTA, compact Inter type at 400–510 weights, and product-screenshot showcase cards at 12px radius
-- **Raycast** — Shared dark precision-instrument aesthetic — compact spacing, 6px button radius, monochromatic chrome with a single functional accent color for active states
-- **Framer** — Same dark-canvas layout language with large 48–64px Inter headings at tight tracking, product-screenshot hero cards, and minimal ornament between sections
+- **Instagram Shopping** — Same white-canvas product discovery model with image-first cards and minimal chrome around merchandise
+- **Pinterest** — Floating rounded product tiles, soft shadows, and a browseable constellation layout over a centered search affordance
+- **SSENSE** — Large-format product imagery in heavily-rounded cards, compact 16px body type, and a single restrained accent color
+- **Apple Shop** — Generous 20–28px radii across all interactive surfaces and pill-shaped controls on a white canvas
+- **Faire** — Product-first discovery with elevated floating image cards, tight negative tracking on body type, and warm-neutral palette
 
 ## Quick Start
 
@@ -275,115 +256,88 @@ Micro: 10px / 510 / lh 1.5 / ls default
 ```css
 :root {
   /* Colors */
-  --color-void: #08090a;
-  --color-carbon: #0f1011;
-  --color-obsidian: #161718;
-  --color-graphite: #23252a;
-  --color-smoke: #383b3f;
-  --color-ash: #62666d;
-  --color-fog: #8a8f98;
-  --color-mist: #d0d6e0;
-  --color-bone: #e5e5e6;
-  --color-paper: #ffffff;
-  --color-acid-lime: #e4f222;
-  --color-pulse-green: #27a644;
-  --color-coral-red: #eb5757;
-  --color-signal-teal: #02b8cc;
-  --color-iris-violet: #6366f1;
-  --color-lavender: #8b5cf6;
+  --color-canvas-mist: #f2f4f5;
+  --color-pure-white: #ffffff;
+  --color-ink-black: #000000;
+  --color-faint-border: #ebebeb;
+  --color-muted-gray: #787574;
+  --color-cool-stone: #cccccc;
+  --color-warm-fog: #acb0aa;
+  --color-shop-violet: #5433eb;
+  --color-violet-wash: #c0b5f3;
+  --color-slate-ink: #332f2d;
+  --color-ash-veil: #665a54;
 
   /* Typography — Font Families */
-  --font-inter-variable: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-berkeley-mono: 'Berkeley Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-gt-standard: 'GT Standard', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-shopify-sans: 'Shopify Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   /* Typography — Scale */
-  --text-caption: 13px;
-  --leading-caption: 1.2;
-  --text-body-sm: 15px;
-  --leading-body-sm: 1.6;
-  --tracking-body-sm: -0.165px;
-  --text-body-lg: 20px;
+  --text-caption: 11px;
+  --leading-caption: 1.33;
+  --text-body-sm: 12px;
+  --leading-body-sm: 1.33;
+  --text-body: 14px;
+  --leading-body: 1.33;
+  --text-body-lg: 16px;
   --leading-body-lg: 1.33;
-  --tracking-body-lg: -0.24px;
-  --text-subheading: 24px;
-  --leading-subheading: 1.33;
-  --tracking-subheading: -0.288px;
-  --text-heading-sm: 32px;
-  --leading-heading-sm: 1.13;
-  --tracking-heading-sm: -0.704px;
-  --text-heading: 48px;
-  --leading-heading: 1;
-  --tracking-heading: -1.056px;
-  --text-heading-lg: 64px;
-  --leading-heading-lg: 1;
-  --tracking-heading-lg: -1.408px;
-  --text-display: 72px;
-  --leading-display: 1;
-  --tracking-display: -1.584px;
 
   /* Typography — Weights */
-  --font-weight-light: 300;
   --font-weight-regular: 400;
-  --font-weight-w510: 510;
-  --font-weight-w590: 590;
+  --font-weight-bold: 700;
 
   /* Spacing */
-  --spacing-unit: 4px;
   --spacing-4: 4px;
+  --spacing-6: 6px;
   --spacing-8: 8px;
+  --spacing-10: 10px;
+  --spacing-11: 11px;
   --spacing-12: 12px;
   --spacing-16: 16px;
   --spacing-20: 20px;
   --spacing-24: 24px;
-  --spacing-28: 28px;
   --spacing-32: 32px;
-  --spacing-36: 36px;
+  --spacing-38: 38px;
   --spacing-40: 40px;
   --spacing-48: 48px;
-  --spacing-56: 56px;
   --spacing-64: 64px;
-  --spacing-80: 80px;
-  --spacing-96: 96px;
-  --spacing-128: 128px;
 
   /* Layout */
   --page-max-width: 1200px;
-  --section-gap: 96px;
-  --card-padding: 24px;
-  --element-gap: 8px;
+  --section-gap: 64px;
+  --card-padding: 0px;
+  --element-gap: 12px;
 
   /* Border Radius */
-  --radius-sm: 2px;
-  --radius-md: 6px;
-  --radius-xl: 12px;
-  --radius-2xl: 16px;
-  --radius-2xl-2: 22px;
-  --radius-full: 400px;
-  --radius-full-2: 9999px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-xl: 11.4046px;
+  --radius-2xl: 17.1064px;
+  --radius-2xl-2: 20px;
+  --radius-2xl-3: 22.8092px;
+  --radius-3xl: 28px;
+  --radius-3xl-2: 32px;
+  --radius-full: 9999px;
 
   /* Named Radii */
-  --radius-cards: 12px;
-  --radius-pills: 9999px;
-  --radius-small: 2px;
-  --radius-badges: 4px;
-  --radius-inputs: 6px;
-  --radius-buttons: 6px;
+  --radius-cards: 28px;
+  --radius-chips: 9999px;
+  --radius-pills: 20px;
+  --radius-inputs: 9999px;
+  --radius-search: 9999px;
+  --radius-buttons: 9999px;
 
   /* Shadows */
-  --shadow-sm: rgba(0, 0, 0, 0.4) 0px 2px 4px 0px;
-  --shadow-md: rgba(0, 0, 0, 0.2) 0px 0px 12px 0px inset;
-  --shadow-subtle: rgb(35, 37, 42) 0px 0px 0px 1px inset;
-  --shadow-subtle-2: rgba(0, 0, 0, 0.2) 0px 0px 0px 1px;
-  --shadow-subtle-3: rgba(0, 0, 0, 0.01) 0px 5px 2px 0px, rgba(0, 0, 0, 0.04) 0px 3px 2px 0px, rgba(0, 0, 0, 0.07) 0px 1px 1px 0px, rgba(0, 0, 0, 0.08) 0px 0px 1px 0px;
-  --shadow-xl: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
-  --shadow-subtle-4: rgba(255, 255, 255, 0.03) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.04) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.6) 0px 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 4px 4px 0px;
-  --shadow-subtle-5: rgba(0, 0, 0, 0.1) 0px 0px 0px 2px;
+  --shadow-sm: rgba(0, 0, 0, 0.06) 0px 2px 8px 0px;
+  --shadow-sm-2: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.1) 0px 2px 4px -2px;
+  --shadow-lg: rgba(0, 0, 0, 0.12) 0px 4px 24px 0px;
+  --shadow-lg-2: rgba(69, 36, 219, 0.34) 0px 4px 24px 0px;
 
   /* Surfaces */
-  --surface-void: #08090a;
-  --surface-carbon: #0f1011;
-  --surface-obsidian: #161718;
-  --surface-slate: #23252a;
+  --surface-canvas: #f2f4f5;
+  --surface-surface: #ffffff;
+  --surface-elevated-card: #ffffff;
+  --surface-accent-product-image: #000000;
 }
 ```
 
@@ -392,87 +346,63 @@ Micro: 10px / 510 / lh 1.5 / ls default
 ```css
 @theme {
   /* Colors */
-  --color-void: #08090a;
-  --color-carbon: #0f1011;
-  --color-obsidian: #161718;
-  --color-graphite: #23252a;
-  --color-smoke: #383b3f;
-  --color-ash: #62666d;
-  --color-fog: #8a8f98;
-  --color-mist: #d0d6e0;
-  --color-bone: #e5e5e6;
-  --color-paper: #ffffff;
-  --color-acid-lime: #e4f222;
-  --color-pulse-green: #27a644;
-  --color-coral-red: #eb5757;
-  --color-signal-teal: #02b8cc;
-  --color-iris-violet: #6366f1;
-  --color-lavender: #8b5cf6;
+  --color-canvas-mist: #f2f4f5;
+  --color-pure-white: #ffffff;
+  --color-ink-black: #000000;
+  --color-faint-border: #ebebeb;
+  --color-muted-gray: #787574;
+  --color-cool-stone: #cccccc;
+  --color-warm-fog: #acb0aa;
+  --color-shop-violet: #5433eb;
+  --color-violet-wash: #c0b5f3;
+  --color-slate-ink: #332f2d;
+  --color-ash-veil: #665a54;
 
   /* Typography */
-  --font-inter-variable: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-berkeley-mono: 'Berkeley Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-gt-standard: 'GT Standard', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-shopify-sans: 'Shopify Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   /* Typography — Scale */
-  --text-caption: 13px;
-  --leading-caption: 1.2;
-  --text-body-sm: 15px;
-  --leading-body-sm: 1.6;
-  --tracking-body-sm: -0.165px;
-  --text-body-lg: 20px;
+  --text-caption: 11px;
+  --leading-caption: 1.33;
+  --text-body-sm: 12px;
+  --leading-body-sm: 1.33;
+  --text-body: 14px;
+  --leading-body: 1.33;
+  --text-body-lg: 16px;
   --leading-body-lg: 1.33;
-  --tracking-body-lg: -0.24px;
-  --text-subheading: 24px;
-  --leading-subheading: 1.33;
-  --tracking-subheading: -0.288px;
-  --text-heading-sm: 32px;
-  --leading-heading-sm: 1.13;
-  --tracking-heading-sm: -0.704px;
-  --text-heading: 48px;
-  --leading-heading: 1;
-  --tracking-heading: -1.056px;
-  --text-heading-lg: 64px;
-  --leading-heading-lg: 1;
-  --tracking-heading-lg: -1.408px;
-  --text-display: 72px;
-  --leading-display: 1;
-  --tracking-display: -1.584px;
 
   /* Spacing */
   --spacing-4: 4px;
+  --spacing-6: 6px;
   --spacing-8: 8px;
+  --spacing-10: 10px;
+  --spacing-11: 11px;
   --spacing-12: 12px;
   --spacing-16: 16px;
   --spacing-20: 20px;
   --spacing-24: 24px;
-  --spacing-28: 28px;
   --spacing-32: 32px;
-  --spacing-36: 36px;
+  --spacing-38: 38px;
   --spacing-40: 40px;
   --spacing-48: 48px;
-  --spacing-56: 56px;
   --spacing-64: 64px;
-  --spacing-80: 80px;
-  --spacing-96: 96px;
-  --spacing-128: 128px;
 
   /* Border Radius */
-  --radius-sm: 2px;
-  --radius-md: 6px;
-  --radius-xl: 12px;
-  --radius-2xl: 16px;
-  --radius-2xl-2: 22px;
-  --radius-full: 400px;
-  --radius-full-2: 9999px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-xl: 11.4046px;
+  --radius-2xl: 17.1064px;
+  --radius-2xl-2: 20px;
+  --radius-2xl-3: 22.8092px;
+  --radius-3xl: 28px;
+  --radius-3xl-2: 32px;
+  --radius-full: 9999px;
 
   /* Shadows */
-  --shadow-sm: rgba(0, 0, 0, 0.4) 0px 2px 4px 0px;
-  --shadow-md: rgba(0, 0, 0, 0.2) 0px 0px 12px 0px inset;
-  --shadow-subtle: rgb(35, 37, 42) 0px 0px 0px 1px inset;
-  --shadow-subtle-2: rgba(0, 0, 0, 0.2) 0px 0px 0px 1px;
-  --shadow-subtle-3: rgba(0, 0, 0, 0.01) 0px 5px 2px 0px, rgba(0, 0, 0, 0.04) 0px 3px 2px 0px, rgba(0, 0, 0, 0.07) 0px 1px 1px 0px, rgba(0, 0, 0, 0.08) 0px 0px 1px 0px;
-  --shadow-xl: rgba(8, 9, 10, 0.6) 0px 4px 32px 0px;
-  --shadow-subtle-4: rgba(255, 255, 255, 0.03) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.04) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.6) 0px 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 4px 4px 0px;
-  --shadow-subtle-5: rgba(0, 0, 0, 0.1) 0px 0px 0px 2px;
+  --shadow-sm: rgba(0, 0, 0, 0.06) 0px 2px 8px 0px;
+  --shadow-sm-2: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.1) 0px 2px 4px -2px;
+  --shadow-lg: rgba(0, 0, 0, 0.12) 0px 4px 24px 0px;
+  --shadow-lg-2: rgba(69, 36, 219, 0.34) 0px 4px 24px 0px;
 }
 ```

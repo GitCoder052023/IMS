@@ -10,7 +10,7 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Feather } from '@expo/vector-icons';
 import { useInventory } from '../../context/InventoryContext';
-import { colors, radii, spacing } from '../../theme/tokens';
+import { colors, spacing } from '../../theme/tokens';
 import { Button } from '../../components/ui/Button';
 import { Card } from '../../components/ui/Card';
 
@@ -60,7 +60,6 @@ export default function SettingsScreen() {
       {/* Header */}
       <View style={styles.header}>
         <Text style={styles.screenTitle}>Application Settings</Text>
-        <Text style={styles.screenSubtitle}>Local offline data & preferences</Text>
       </View>
 
       <ScrollView
@@ -122,34 +121,6 @@ export default function SettingsScreen() {
               disabled={items.length === 0 && history.length === 0}
               style={styles.dangerBtn}
             />
-          </Card>
-        </View>
-
-        {/* About Domain Card */}
-        <View style={styles.section}>
-          <Text style={styles.sectionLabel}>DOMAIN & PURPOSE</Text>
-          <Card style={styles.infoCard}>
-            <Text style={styles.aboutTitle}>Domain-Universal Architecture</Text>
-            <Text style={styles.aboutText}>
-              This application is designed for sports and fitness organizations including:
-            </Text>
-            <View style={styles.sportsList}>
-              {[
-                'Gyms & Fitness Studios',
-                'Cricket Academies',
-                'Football & Futsal Clubs',
-                'Tennis & Racket Academies',
-                'Basketball & Volleyball Facilities',
-                'Swimming Centers',
-                'Martial Arts & Combat Dojos',
-                'Yoga & Pilates Studios',
-              ].map((domain) => (
-                <View key={domain} style={styles.sportItem}>
-                  <View style={styles.bullet} />
-                  <Text style={styles.sportText}>{domain}</Text>
-                </View>
-              ))}
-            </View>
           </Card>
         </View>
       </ScrollView>

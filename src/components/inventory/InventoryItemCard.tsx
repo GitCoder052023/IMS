@@ -8,7 +8,7 @@ import {
   getInventoryStatus,
 } from '../../utils/inventoryCalculations';
 import { Card } from '../ui/Card';
-import { StatusBadge, DamagedBadge, CategoryTag } from '../ui/StatusBadge';
+import { StatusBadge, DamagedBadge } from '../ui/StatusBadge';
 
 interface InventoryItemCardProps {
   item: InventoryItem;
@@ -21,40 +21,42 @@ export function InventoryItemCard({ item, onPress }: InventoryItemCardProps) {
 
   return (
     <Card onPress={onPress} style={styles.container}>
+      {/* 1. Item Name & Navigation Indicator */}
       <View style={styles.topRow}>
-        <View style={styles.titleContainer}>
-          <Text style={styles.name} numberOfLines={1}>
-            {item.name}
-          </Text>
-          <CategoryTag category={item.category} />
-        </View>
-        <Feather name="chevron-right" size={18} color={colors.fog} />
+        <Text style={styles.name} numberOfLines={1}>
+          {item.name}
+        </Text>
+        <Feather name="chevron-right" size={16} color={colors.fog} />
       </View>
 
-      <View style={styles.metricsRow}>
-        <View style={styles.qtyContainer}>
-          <Text style={styles.qtyNumber}>{available}</Text>
-          <Text style={styles.qtyUnit}>
-            {item.unit} available
-          </Text>
-          {item.damagedQuantity > 0 && (
-            <Text style={styles.totalOwned}>
-              ({item.quantity} total)
-            </Text>
-          )}
-        </View>
+      {/* 2. Secondary Category Metadata */}
+      <Text style={styles.categoryText} numberOfLines={1}>
+        {item.category}
+      </Text>
 
-        <View style={styles.badgeContainer}>
-          <StatusBadge status={status} />
-          {item.damagedQuantity > 0 && (
-            <DamagedBadge count={item.damagedQuantity} />
-          )}
-        </View>
+      {/* 3. Available vs Total Quantity */}
+      <View style={styles.quantityRow}>
+        <Text style={styles.availableQty}>
+          {available} {item.unit} available
+        </Text>
+        <Text style={styles.dotSeparator}>·</Text>
+        <Text style={styles.totalQty}>
+          {item.quantity} total
+        </Text>
       </View>
 
+      {/* 4. Stock Status & Damaged Badges */}
+      <View style={styles.badgesRow}>
+        <StatusBadge status={status} />
+        {item.damagedQuantity > 0 && (
+          <DamagedBadge count={item.damagedQuantity} unit={item.unit} />
+        )}
+      </View>
+
+      {/* 5. Minimum Threshold & Notes */}
       <View style={styles.bottomRow}>
         <Text style={styles.minThreshold}>
-          Desired min: {item.minimumQuantity} {item.unit}
+          Minimum: {item.minimumQuantity} {item.unit}
         </Text>
         {item.notes ? (
           <Text style={styles.notesText} numberOfLines={1}>
@@ -68,76 +70,73 @@ export function InventoryItemCard({ item, onPress }: InventoryItemCardProps) {
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: spacing[12],
-    gap: spacing[12],
+    marginBottom: spacing[8],
+    paddingVertical: spacing[12],
+    paddingHorizontal: spacing[14],
+    gap: 5,
   },
   topRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'flex-start',
-  },
-  titleContainer: {
-    flex: 1,
-    gap: spacing[6],
-    marginRight: spacing[8],
+    alignItems: 'center',
   },
   name: {
-    fontSize: 16,
+    fontSize: 15,
     fontWeight: '600',
     color: colors.paper,
     letterSpacing: -0.2,
+    flex: 1,
+    marginRight: spacing[8],
   },
-  metricsRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingVertical: 2,
-  },
-  qtyContainer: {
-    flexDirection: 'row',
-    alignItems: 'baseline',
-    gap: 6,
-    flexWrap: 'wrap',
-  },
-  qtyNumber: {
-    fontSize: 22,
-    fontWeight: '700',
-    color: colors.paper,
-    letterSpacing: -0.3,
-  },
-  qtyUnit: {
-    fontSize: 13,
-    color: colors.bone,
-    fontWeight: '400',
-  },
-  totalOwned: {
+  categoryText: {
     fontSize: 12,
     color: colors.fog,
+    fontWeight: '400',
   },
-  badgeContainer: {
+  quantityRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    marginTop: 2,
+  },
+  availableQty: {
+    fontSize: 14,
+    fontWeight: '700',
+    color: colors.bone,
+    letterSpacing: -0.1,
+  },
+  dotSeparator: {
+    fontSize: 12,
+    color: colors.ash,
+  },
+  totalQty: {
+    fontSize: 13,
+    color: colors.mist,
+  },
+  badgesRow: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: spacing[8],
     flexWrap: 'wrap',
-    justifyContent: 'flex-end',
+    marginTop: 2,
   },
   bottomRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingTop: spacing[8],
+    paddingTop: 6,
     borderTopWidth: 1,
-    borderTopColor: 'rgba(255, 255, 255, 0.05)',
+    borderTopColor: 'rgba(255, 255, 255, 0.04)',
+    marginTop: 2,
   },
   minThreshold: {
-    fontSize: 12,
+    fontSize: 11,
     color: colors.fog,
-    letterSpacing: -0.1,
   },
   notesText: {
-    fontSize: 12,
+    fontSize: 11,
     color: colors.ash,
-    maxWidth: 160,
     fontStyle: 'italic',
+    maxWidth: 160,
   },
 });
